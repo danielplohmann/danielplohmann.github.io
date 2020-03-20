@@ -17,7 +17,7 @@ However, sorting by function names with the standard Funtion Window of IDA is un
 That brought up that I would need some kind of custom table visualization, like the one you might have already seen in my [tweet][tweet on visualiation]. 
 
 Here is the screenshot, so you don't have to click anything:
-![Screenshot of IDAscope](images/20120718/IDAscope_first_preview.png)
+![Screenshot of IDAscope](/images/20120718/IDAscope_first_preview.png)
 
 I read a [MindShaRE blog post][mindshare blog] by Aaron Portnoy on his journey with IDA/PySide and it was some kind of a door opener for me, as it showed me what would actually be possible by building own GUI extensions. 
 By that time, I started working on the plugin but was thrown back when Aaron and Brandon announced Toolbag, which already in the Beta seemed to be a powerful implementation extending IDA with a lot of features that come in handy.
@@ -26,7 +26,7 @@ The feedback of Alex also put in a lot of motivation, helping me to continue.
 
 So after the REstart, the next step was to take the basic existing script as mentioned before and embedding it in some optimized graphic front end, resulting in the GUI as shown here:
 
-![Current state of "Function Inspection".](images/20120718/parameters.png)
+![Current state of "Function Inspection".](/images/20120718/parameters.png)
 
 Having an overview of the tagged functions was just one step, having the relevant API calls responsible for the tag was a logical consequence. 
 Right now, I am working on extracting the parameters to these function calls. For this, some basic data flow analysis is needed of course.
@@ -70,12 +70,12 @@ Long-term, I want to have some functionality for looking up APIs, structs and ty
 Another feature that is already integrated and that was shown in the [tweet][tweet on coloring] was the coloring of basic blocks based on the semantic type of the tag. Once you are used to the colors, this can really speed up navigation in a function using the Graph overview.
 
 For my config, I use the following six colors:
- * <span style="color: yellow;"><b>yellow for memory manipulation</span>
- * <span style="color: orange;"><b>orange for file manipulation</span>
- * <span style="color: #cc0000;"><b>red for registry manipulation</span>
- * <span style="color: #674ea7;"><b>violet for execution manipulation</span>
- * <span style="color: #3d85c6;"><b>blue for network operations</span>
- * <span style="color: #6aa84f;"><b>green for cryptography</span>
+ * <span style="color: yellow;">yellow for memory manipulation</span>
+ * <span style="color: orange;">orange for file manipulation</span>
+ * <span style="color: #cc0000;">red for registry manipulation</span>
+ * <span style="color: #674ea7;">violet for execution manipulation</span>
+ * <span style="color: #3d85c6;">blue for network operations</span>
+ * <span style="color: #6aa84f;">green for cryptography</span>
 
 Right now, the highlighting is implemented in a 3-way cycle: use 6 colors, use standard color (all red), disable. 
 Disabling is important because I noticed that you can also get to a point where you focus too hard on the colors and might miss other important spots.
@@ -87,9 +87,12 @@ However, if you are interested or want to share ideas for features, let us know 
 
 Stay tuned for more news on IDAscope. :)
 
+[link to original post][blogspot post].
+
 
 [tweet on visualiation]: https://twitter.com/push_pnx/status/223705204799971330
 [tweet on coloring]: https://twitter.com/push_pnx/status/223705204799971330
 [alex twitter]: https://twitter.com/nullandnull
 [alex blog]: http://hooked-on-mnemonics.blogspot.de/
 [mindshare blog]: http://dvlabs.tippingpoint.com/blog/2012/02/25/mindshare-yo-dawg-i-heard-you-like-reversing
+[blogspot post]: https://pnx-tf.blogspot.com/2012/07/introducing-idascope.html
