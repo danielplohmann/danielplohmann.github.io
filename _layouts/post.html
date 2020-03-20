@@ -7,15 +7,13 @@ layout: default
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {%- assign date_format = site.minima.date_format | default: "%Y-%m-%d %H:%M" -%}
 
-        {%- if page.last_modified_at -%}
+        {%- if page.last_modified_at != page.date -%}
             {{ page.date | date: date_format }} (Last updated: {{ page.last_modified_at | date: date_format }})
         {%- else -%}
             {{ page.date | date: date_format }}
         {%- endif -%}
       </time>
-      {%- if page.author -%}
-        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span>
-      {%- endif -%}
+    </p>
   </header>
 
 <div id="post">
