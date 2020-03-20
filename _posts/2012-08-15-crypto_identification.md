@@ -15,7 +15,7 @@ Now you may say "oh no, yet another crypto detection tool?" Well, yes, but befor
  
 ### Heuristics-based crypto detection by code properties
 
-About 2 years ago, during literature research on network protocol reverse engineering, I came across an interesting paper called "[dispatcher paper][Dispatcher: Enabling Active Botnet Infiltration using Automatic Protocol Reverse-Engineering]" by Juan Caballero et al. 
+About 2 years ago, during literature research on network protocol reverse engineering, I came across an interesting paper called ["Dispatcher: Enabling Active Botnet Infiltration using Automatic Protocol Reverse-Engineering"][dispatcher paper] by Juan Caballero et al. 
 Besides the description of an approach on how to identify and dissect message buffers into protocol fields, it contains a section on automated detection of cryptographic routines ("Detecting Encoding Functions", p. 10).  
 The main idea is pretty straight forward: 
  * Evaluate the ratio of arithmetic/logic instructions related to all instructions in a function. *Assumption*: Cryptographic functions usually consist mainly of arithmetic/logic instructions, thus they should have a higher ratio.
@@ -25,7 +25,12 @@ While the approach described in the paper is applied to dynamically achieved ins
  
 I use the following set of arithmetic/logic instructions, please tell me if I missed something: 
 ```
-["add", "and", "or", "adc", "sbb", "and", "sub", "xor", "inc", "dec", "daa", "aaa", "das", "aas", "imul", "aam", "aad", "salc", "not", "neg", "test", "sar", "cdq"]
+[
+    "add", "and", "or", "adc", "sbb", "and", 
+    "sub", "xor", "inc", "dec", "daa", "aaa", 
+    "das", "aas", "imul", "aam", "aad", "salc", 
+    "not", "neg", "test", "sar", "cdq"
+]
 ```
 
 The following screenshot shows the widget in action: 
@@ -50,6 +55,7 @@ The filters are set to show only blocks with a rating of above 30%, with a size 
 23 blocks is a number small enough for me to look at in just a few minutes, identifying the relevant parts in a very short amount of time. 
  
 Among the 23 blocks is the following one: 
+
 [![citadel rc4](/assets/20120815/citadel.png "Citadel's modified RC4 stream cipher")](/assets/20120815/citadel.png)
 
 containing the modified stream cipher that is used in Citadel. 
@@ -57,7 +63,7 @@ In addition to the normal XOR/substitutions, Citadel also XORs against the chara
 While this may be a weak example because the block is easily identified by searching for exactly this hash, you probably get the idea on how to use the widget. 
 The heuristic also successfully identifies all the other crypto parts in the sample like the AES and CRC32 algorithms. 
  
-If you wonder about how you get double-sliders in Qt (because it is not a standard widget): The idea and code of this widget called "BoundsEditor" is adapted from Enthought's [enthought traitsui][TraitsUI], which luckily is open-source software. I took the code and reduced it back to a standard Qt widget, having a great and compact control element to adjust my parameters. 
+If you wonder about how you get double-sliders in Qt (because it is not a standard widget): The idea and code of this widget called "BoundsEditor" is adapted from Enthought's [TraitsUI][enthought traitsui], which luckily is open-source software. I took the code and reduced it back to a standard Qt widget, having a great and compact control element to adjust my parameters. 
  
 ### Signature-based crypto identification
 
@@ -71,7 +77,7 @@ The colors mean:
  * **<span style="color: #666666;">[black] referenced by:</span>** constant somewhere (e.g. data section), referenced by code.
  * **<span style="color: #cc0000;">[red] referenced by</span>**: constant immediately used in code, just as shown in the basic block to the left.
 
-The currently supported algorithms are (with ingredients from [twitter ilfak][Ilfak Guilfanov]'s [findcrypt][findcrypt], [twitter felix][Felix Gröbert's] [kerckhoff][kerckhoff's], a crypto detection implementation by [twitter pleed][Felix Matenaar] from his Bachelor thesis, and some of my own adaptions): 
+The currently supported algorithms are (with ingredients from [Ilfak Guilfanov's][twitter ilfak] [findcrypt][findcrypt], [Felix Gröbert's][twitter felix] [kerckhoff's][kerckhoff], a crypto detection implementation by [Felix Matenaar][twitter pleed] from his Bachelor thesis, and some of my own adaptions): 
  * ADLER 32
  * AES
  * Blowfish
@@ -112,10 +118,10 @@ The only thing missing right now is renaming / tagging those functions based on 
 ### Other changes to IDAscope
 
 To conclude this post, I want to briefly discuss some more changes I did to IDAscope since the last post: 
- * In my <a href="http://pnx-tf.blogspot.com/2012/07/idascope-update-winapi-browsing.html" target="_blank">last post</a>, I mentioned that the WinAPI widget only worked against the offline data from the Windows SDK. This is no longer the case, as it now supports doing online lookups (controllable by a checkbox) in the case it does not find local information. This is great because by that, the missing documentation of CRT and NTDLL functions are now also covered. Parsing of the MSDN webpage can be optimized but works for now.
+ * In my [last post]({% post_url 2012-07-25-idascope-winapi-browsing %}), I mentioned that the WinAPI widget only worked against the offline data from the Windows SDK. This is no longer the case, as it now supports doing online lookups (controllable by a checkbox) in the case it does not find local information. This is great because by that, the missing documentation of CRT and NTDLL functions are now also covered. Parsing of the MSDN webpage can be optimized but works for now.
  * Hotkey support for widgets. As an example, `[CTRL+Y]` will now look up the currently highlighted identifier (in IDA View) in the WinAPI widget and change focus to this widget.
  * More changes under the hood, data structures, refactoring, etc. I feel that the code is better organized and easier to understand now.
- * Experimental code for visualizing the function relationship starting by Thread start addresses (cmp. [blog alex][Alex' last blog post]).
+ * Experimental code for visualizing the function relationship starting by Thread start addresses (cf. [Alex' last blog post][blog alex]).
 
 Next to come is the integration of Alex' latest scripts into widgets. 
 
