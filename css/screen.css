@@ -68,7 +68,7 @@
   
     ul.posts span {
       color: #828282;
-      font-family: Monaco, "Courier New", monospace;
+      font-family: "Roboto Mono", monospace;
       font-size: 80%;
     }
   
@@ -92,55 +92,55 @@
     margin-bottom: 2em;
   }
   
-    .site .title a {
-      color: #a00;
-      text-decoration: none;
-    }
-  
-    .site .title a:hover {
-      color: black;
-    }
-  
-    .site .title a.extra {
-      color: #aaa;
-      text-decoration: none;
-      margin-left: 1em;
-    }
-  
-    .site .title a.extra:hover {
-      color: black;
-    }
-  
-    .site .meta {
-      color: #aaa;
-    }
-  
-    .site .footer {
-      font-size: 80%;
-      color: #666;
-      border-top: 4px solid #eee;
-      margin-top: 2em;
-      overflow: hidden;
-    }
-  
-      .site .footer .contact {
-        float: left;
-        margin-right: 3em;
-      }
-  
-        .site .footer .contact a {
-          color: #8085C1;
-        }
-  
-      .site .footer .rss {
-        margin-top: 1.1em;
-        margin-right: -.2em;
-        float: right;
-      }
-  
-        .site .footer .rss img {
-          border: 0;
-        }
+  .site .title a {
+    color: #a00;
+    text-decoration: none;
+  }
+
+  .site .title a:hover {
+    color: black;
+  }
+
+  .site .title a.extra {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 1em;
+  }
+
+  .site .title a.extra:hover {
+    color: black;
+  }
+
+  .site .meta {
+    color: #aaa;
+  }
+
+  .site .footer {
+    font-size: 80%;
+    color: #666;
+    border-top: 4px solid #eee;
+    margin-top: 2em;
+    overflow: hidden;
+  }
+
+  .site .footer .contact {
+    float: left;
+    margin-right: 3em;
+  }
+
+  .site .footer .contact a {
+    color: #8085C1;
+  }
+
+  .site .footer .rss {
+    margin-top: 1.1em;
+    margin-right: -.2em;
+    float: right;
+  }
+
+  .site .footer .rss img {
+    border: 0;
+  }
   
   /*****************************************************************************/
   /*
@@ -160,11 +160,18 @@
       padding: 0 .4em;
     }
   
-    #post title {
+    .post-title {
       color: #000;
       font-weight: bold;
-      font-size: 120%;
+      font-size: 135%;
       margin-bottom: 0.5em;
+    }
+
+    .post-date {
+      color: #828282;
+      font-style: italic;
+      font-size: 80%;
+      margin-bottom: 0.2em;
     }
 
     #post ul,

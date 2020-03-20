@@ -1,6 +1,6 @@
 ## Blog Repository
 
-I just decided to merge some older blogs (Testing Facility, ByteAtlas) into a single new place.  
+I decided to merge some older blogs (Testing Facility, ByteAtlas) into a single new place.  
 With that I'm hoping that jekyll provides a fast and tolerable workflow for this migration and future posts. :)
 
 ## License
