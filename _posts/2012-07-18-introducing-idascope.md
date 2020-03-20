@@ -18,7 +18,7 @@ That brought up that I would need some kind of custom table visualization, like 
 
 Here is the screenshot, so you don't have to click anything:
 
-[![Screenshot of IDAscope](/images/20120718/IDAscope_first_preview.png "Screenshot of IDAscope")](/images/20120718/IDAscope_first_preview.png)
+[![Screenshot of IDAscope](/assets/20120718/IDAscope_first_preview.png "Screenshot of IDAscope")](/assets/20120718/IDAscope_first_preview.png)
 
 I read a [MindShaRE blog post][mindshare blog] by Aaron Portnoy on his journey with IDA/PySide and it was some kind of a door opener for me, as it showed me what would actually be possible by building own GUI extensions. 
 By that time, I started working on the plugin but was thrown back when Aaron and Brandon announced Toolbag, which already in the Beta seemed to be a powerful implementation extending IDA with a lot of features that come in handy.
@@ -27,7 +27,7 @@ The feedback of Alex also put in a lot of motivation, helping me to continue.
 
 So after the REstart, the next step was to take the basic existing script as mentioned before and embedding it in some optimized graphic front end, resulting in the GUI as shown here:
 
-[![Function Inspection](/images/20120718/parameters.png "Current state of Function Inspection.")](/images/20120718/parameters.png)
+[![Function Inspection](/assets/20120718/parameters.png "Current state of Function Inspection.")](/assets/20120718/parameters.png)
 
 Having an overview of the tagged functions was just one step, having the relevant API calls responsible for the tag was a logical consequence. 
 Right now, I am working on extracting the parameters to these function calls. For this, some basic data flow analysis is needed of course.
