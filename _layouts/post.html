@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%Y-%m-%d %H:%M" -%}
+
+        {%- if page.last_modified_at -%}
+            {{ page.date | date: date_format }} (Last updated: {{ page.last_modified_at | date: date_format }})
+        {%- else -%}
+            {{ page.date | date: date_format }}
+        {%- endif -%}
+      </time>
+      {%- if page.author -%}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span>
+      {%- endif -%}
+  </header>
+
+<div id="post">
+{{ content }}
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    {% for post in site.related_posts limit:3 %}
+      <li><span>{{ post.date | date: "%Y-%m-%d %H:%M" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
