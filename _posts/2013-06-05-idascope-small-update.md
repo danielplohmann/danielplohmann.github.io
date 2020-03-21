@@ -34,7 +34,7 @@ Actually, I'd love to see contributions from volunteers who have been actively u
 Otherwise I might add new profiles myself if I have a good day or something.  
   
 The specification for a profile looks like this and should be easy to extend (JSON):  
-```
+```json
 {
     "author": "pnX",
     "creation_date": "05.06.2013",

@@ -13,9 +13,9 @@ I submitted the extension to the [Hex-Rays contest][ida contest] two days ago an
  
 You can find the repository we will use to publish future updates here: 
  
-[bitbucket repo][https://bitbucket.org/daniel_plohmann/simplifire.idascope/]
+[bitbucket repo][bitbucket repo]
  
-There is a prepared [download for version 1.0[bitbucket zip]. You can also checkout via `git` from the repo (right now they have the same content). 
+There is a prepared [download for version 1.0][bitbucket zip]. You can also checkout via `git` from the repo (right now they have the same content). 
  
 For installation instructions, feature description and usage, check out the manual located in *IDAscope/documentation/manual/*. 
  
