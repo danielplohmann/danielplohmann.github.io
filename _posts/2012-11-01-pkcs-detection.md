@@ -139,12 +139,12 @@ That's basically the complete walkthrough of this DER-encoded public key, just t
 ```
 SEQUENCE
   SEQUENCE
-    OBJECT IDENTIFIER   &lt;- rsaEncryption
+    OBJECT IDENTIFIER   <- rsaEncryption
     NULL
   BIT STRING
-    SEQUENCE            &lt;- RSAPublicKey
-      INTEGER           &lt;- modulus
-      INTEGER           &lt;- publicExponent
+    SEQUENCE            <- RSAPublicKey
+      INTEGER           <- modulus
+      INTEGER           <- publicExponent
 ```
   
 ### Deriving signatures
@@ -212,11 +212,16 @@ Currently supported are the following PKCS structures:
  * unencrypted RSA public key 512bit - 8192bit
  * unencrypted RSA private key 512bit - 8192bit
  * X.509 Certificates
-  
+
+
 ### Test Case
 
 What would be a blog post without a demonstration. 
-I took a Kelihos / HLUX sample (MD5: `14ff8123f58df1ec4a49afe70c84723b`) which has proven quite good for testing lately.   
+I took a Kelihos / HLUX sample
+```
+MD5: 14ff8123f58df1ec4a49afe70c84723b
+```
+which has proven quite good for testing lately.   
 It has 5600+ functions (huge!) and features a lot of crypto signature hits:   
 [![ida screenshot](/assets/20121101/hlux_pkcs.png "Detection of two RSA 2048bit public keys in HLUX.")](/assets/20121101/hlux_pkcs.png)
 
