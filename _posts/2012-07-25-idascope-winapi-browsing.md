@@ -28,7 +28,7 @@ I took the following lessons from my peek into this book:
 So for now I feel that it has more value to implement other functionality/ideas for easing the reverse engineering workflow first than putting together a full data flow framework. 
 I still have this on the agenda but I will probably come up with a very simplified version (say: hack) that will at least show reference in a way IDA does it already (incl. clickable reference):
 
-[![simple dataflow example](/assets/20120725/simple_data_flow.png "A simple dataflow example")](/assets/20120725/simple_data_flow.png)
+[![simple dataflow example]({* link /assets/20120725/simple_data_flow.png %} "A simple dataflow example")]({* link /assets/20120725/simple_data_flow.png %})
 
 However, I still see the potential of data flow analysis and will pick this up later on, I guess.  
 If you have a hint on how to integrate data flow analysis at this point without introducing much external dependencies, let me know.

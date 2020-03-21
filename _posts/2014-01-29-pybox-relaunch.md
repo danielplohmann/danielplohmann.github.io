@@ -85,7 +85,7 @@ When the hook returns, the register state is restored via `POPAD { 61 }` and any
 Finally we `JMP { E9 001dc0de }` back to the instruction behind the originally hooked address.   
 In summary, hook execution looks like this:
 
-[![hook handling](/assets/20140129/hook_handling.png "")](/assets/20140129/hook_handling.png)
+[![hook handling](/assets/20140129/hook_handling.png "Hook Handling")](/assets/20140129/hook_handling.png)
 
 When a hook is called, it can access and modify the current function execution context (`return addr`, `stack`) and register context (from `EAX` to `EDI`) through two respective objects passed to it as argument.  
 Besides these modules, there is also an unfinished dumper module and a `ProcTrack` module, which hooks API functions for spawning new processes and injects the current box into these when triggered.  
