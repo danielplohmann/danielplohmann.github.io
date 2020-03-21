@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
 ```  
 In this template we have only one test in our test case `IDAPythonTests` called `test_fileLoaded`. 
-Tests to be executed by the Python [unittes][python unittest] testrunner use the prefix `test_`.  
+Tests to be executed by the Python [unittest][python unittest] testrunner use the prefix `test_`.  
 Normally you would not test directly against IDAPython's API as in this example.
 But would rather test your own code through function calls, with your code usually being located in a different file and imported into the test case.  
   
