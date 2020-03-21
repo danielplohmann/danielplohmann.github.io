@@ -50,7 +50,8 @@ A more interesting functionality implemented in ProcessRigger is its ability to 
 For this, we dynamically generate and write a short shellcode to the target process, consisting of the expected number of push instructions as arguments (either immediates or pointer to strings / structures) and the desired call to the target API as well as a consecutive call to `kernel32!ExitThread`. Nothing new, but useful.   
 For PyBox, we only use this to set some environment variables in the context of the target process in which PyBox is injected, but since I think the concept has potential for more, here is sample code and a diagram:  
 
-[![remote api call](/assets/20140129/remote_api_call.png "Executing Remote API Calls")](/assets/20140129/remote_api_call.png)
+{% capture asset_link %}{% link /assets/20140129/remote_api_call.png %}{% endcapture %}
+[![remote api call]({{ asset_link | absolute_url }} "Executing Remote API Calls")]({{ asset_link | absolute_url }})
 
 #### PyBox DLL
 
@@ -85,7 +86,8 @@ When the hook returns, the register state is restored via `POPAD { 61 }` and any
 Finally we `JMP { E9 001dc0de }` back to the instruction behind the originally hooked address.   
 In summary, hook execution looks like this:
 
-[![hook handling](/assets/20140129/hook_handling.png "Hook Handling")](/assets/20140129/hook_handling.png)
+{% capture asset_link %}{% link /assets/20140129/hook_handling.png %}{% endcapture %}
+[![hook handling]({{ asset_link | absolute_url }} "Hook Handling")]({{ asset_link | absolute_url }})
 
 When a hook is called, it can access and modify the current function execution context (`return addr`, `stack`) and register context (from `EAX` to `EDI`) through two respective objects passed to it as argument.  
 Besides these modules, there is also an unfinished dumper module and a `ProcTrack` module, which hooks API functions for spawning new processes and injects the current box into these when triggered.  

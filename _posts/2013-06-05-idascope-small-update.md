@@ -20,8 +20,9 @@ I'm really looking forward to his Friday talk on aviation security, which will b
 
 The latest commit to IDAscope contains an extension to the "Function Inspection" part. 
 It is now possible to quickly switch between different profiles for semantic definitions, which should open up this part of IDAscope for better usage in analysing ring0 stuff as well as POSIX or even other platforms.  
-  
-[![idascope profiles](/assets/20130605/idascope_profiles.png "Semantic Profiles")](/assets/20130605/idascope_profiles.png)
+
+{% capture asset_link %}{% link /assets/20130605/idascope_profiles.png %}{% endcapture %}
+[![idascope profiles]({{ asset_link | absolute_url }} "Semantic Profiles")]({{ asset_link | absolute_url }})
   
 IDAscope will automatically load all semantics profiles it finds in the newly created subfolder:  
 ```

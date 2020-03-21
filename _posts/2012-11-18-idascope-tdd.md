@@ -47,7 +47,7 @@ Should have done that with IDAscope as well but I'll add tests for all future bu
 
 So how to use this now in IDA?
 Here is my template file for writing tests:
-```
+```python
 import sys
 import unittest
 import datetime

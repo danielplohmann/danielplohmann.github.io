@@ -20,8 +20,9 @@ However, you might be interested in downloading the [new version][bitbucket zip 
 This new option again reduces dramatically false positives and supports a faster finding of potential crypto routines. 
  
 The following screenshot shows the option in action: 
- 
-[![Loop awareness](/assets/20120918/looped_blocks.png "Loop awareness in the Crypto Identification widget")](/assets/20120918/looped_blocks.png)
+
+{% capture asset_link %}{% link /assets/20120918/looped_blocks.png %}{% endcapture %}
+[![Loop awareness]({{ asset_link | absolute_url }} "Loop awareness in the Crypto Identification widget")]({{ asset_link | absolute_url }})
  
 Previously I would have considered the settings shown in the sliders as rather "wide" and thus giving lots of misleading / uninteresting blocks. 
 In fact, without the additional limiting to looped blocks it would have shown **194** instead of the **28** blocks it shows now. 

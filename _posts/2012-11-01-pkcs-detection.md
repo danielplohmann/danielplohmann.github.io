@@ -174,7 +174,7 @@ But to make those Base64 encoded once also searchable in IDA we need some extra-
 I decided to temporarily map all potentially base64 encoded strings into the memory space of IDA, more precisely in a bonus segment.  
   
 We can get all strings allowing base64-decoding easily by looping over the names, checking if they are ascii and performing decoding via try and error:  
-```
+```python
 def getDecodedBase64Strings(self):
     decoded_names = []
     for name in idautils.Names():
@@ -188,10 +188,11 @@ def getDecodedBase64Strings(self):
         except:
             continue
     return decoded_names
+
 ```
 
 I decided to create a new Segment and put all decoded strings there:  
-```
+```python
 # any currently unused space will do
 start_ea = 0x1000
 # we need enough space to fill in all our base64-decoded strings.
@@ -203,6 +204,7 @@ for name in decoded_names:
     for byte in name:
         idc.PatchByte(offset, ord(byte))
         offset += 1
+
 ```
 The decoded strings are now directly searchable with find_binary() as described before.  
   
@@ -223,7 +225,9 @@ MD5: 14ff8123f58df1ec4a49afe70c84723b
 ```
 which has proven quite good for testing lately.   
 It has 5600+ functions (huge!) and features a lot of crypto signature hits:   
-[![ida screenshot](/assets/20121101/hlux_pkcs.png "Detection of two RSA 2048bit public keys in HLUX.")](/assets/20121101/hlux_pkcs.png)
+
+{% capture asset_link %}{% link /assets/20121101/hlux_pkcs.png %}{% endcapture %}
+[![ida screenshot]({{ asset_link | absolute_url }} "Detection of two RSA 2048bit public keys in HLUX.")]({{ asset_link | absolute_url }})
 
 Among those hits are two base64-encoded public keys that have been detected by IDAscope. 
 You can see that those also start with "MI" and if you have read the whole post, you can deduce at this points that this has to be related to the `0x3081/0x3081` (`SEQUENCE`) with which the binary data is starting.  
@@ -233,8 +237,10 @@ You can see that those also start with "MI" and if you have read the whole post,
 There have been a lot refactoring steps in the codebase that are not visible to the outside. 
 I will likely go on with that, with the goal in mind to move towards a point where you can use IDA+IDAscope without its GUI, basically by using an IDAscope API allowing for further automation purposes.  
   
-A minor change has happened to FunctionInspection with another button in the toolbar:  
-[![ida toolbar](/assets/20121101/fix_code.png "There are now two "fix code options" in Function Inspection")](/assets/20121101/fix_code.png)
+A minor change has happened to FunctionInspection with another button in the toolbar: 
+
+{% capture asset_link %}{% link /assets/20121101/fix_code.png %}{% endcapture %}
+[![ida toolbar]({{ asset_link | absolute_url }} "There are now two "fix code options")]({{ asset_link | absolute_url }})
 
 The "Fix unknown code to functions" option has been split up. 
 There is now one button (plain plus sign) for only converting those undefined code regions that start with a valid function prologue and a second button (double plus sign) that will try to fix all code to functions.  

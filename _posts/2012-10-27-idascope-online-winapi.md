@@ -21,7 +21,7 @@ I'm quite happy that they are covered as well now.
 But in my opinion more importantly, the online lookup cancels the need to download that huge data blob from the Windows SDK and makes IDAscope usable without any prerequisites.   
   
 Online mode is enabled by default (via `./config.json`):  
-```
+```json
 "winapi": {
     "search_hotkey": "ctrl+y",
     "load_keyword_database": true,
@@ -31,6 +31,7 @@ Online mode is enabled by default (via `./config.json`):
 As always, the update can be found in the [repository][idascope repo].  
 
 ### hack.lu (slides + new feature)
+
 On a different note, this week I've been to hack.lu in Luxembourg. 
 It was a great conference with a lot of nice people and many interesting presentations.  
   

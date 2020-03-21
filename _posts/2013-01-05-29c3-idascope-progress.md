@@ -26,7 +26,8 @@ Late November I had some free time to push IDAscope a bit forward. As can be see
 
 Filtering looks like this:
 
-[![filtering](/assets/20130105/filtering.png "Semantic Filtering")](/assets/20130105/filtering.png)
+{% capture asset_link %}{% link /assets/20130105/filtering.png %}{% endcapture %}
+[![filtering]({{ asset_link | absolute_url }} "Semantic Filtering")]({{ asset_link | absolute_url }})
 
 Probably more interesting is the visual feature I am working on.
 
@@ -39,13 +40,15 @@ API calls are not shown but shall be nested within the display of their respecti
 The graph can be dragged around, navigated with keyboard and seamlessly zoomed in and out.  
 At the moment, it looks like this:  
 
-[![idagraph](/assets/20130105/IDAgraph.png "Custom Graphing in IDA")](/assets/20130105/IDAgraph.png)
+{% capture asset_link %}{% link /assets/20130105/IDAgraph.png %}{% endcapture %}
+[![idagraph]({{ asset_link | absolute_url }} "Semantic Filtering")]({{ asset_link | absolute_url }})
   
 Before I actually fill this with more functionality such as actions upon clicks (move to function, rename function, displaying API calls within function, optional colouring, you name it, ...) I have to solve other, more essential issues. :)  
   
 When displaying graphs of functions with a lot of children, I run into the same issues as you all experienced with the WinGraph overviews:  
 
-[![large graphs](/assets/20130105/large_graph.png "Large Graphs are an issue")](/assets/20130105/large_graph.png)
+{% capture asset_link %}{% link /assets/20130105/large_graph.png %}{% endcapture %}
+[![large graphs]({{ asset_link | absolute_url }} "Large Graphs are an issue")]({{ asset_link | absolute_url }})
 
 You don't really get the structure any longer and everything becomes unreadable. 
 However, having this window open besides your one function view already is a benefit, I guess. 
@@ -56,8 +59,9 @@ This can likely be fixed by patching the graph layout algorithm I am currently u
 Again, thanks to [bdcht][twitter bdcht]: for providing his lib [grandalf][github grandalf]!  
   
 While relationship between functions is probably easier to grasp in my graphs already...  
-  
-[![large graph zoomed](/assets/20130105/large_graph_zoomed.png "Large Graphs are an issue - zoomed in.")](/assets/20130105/large_graph_zoomed.png)
+
+{% capture asset_link %}{% link /assets/20130105/large_graph_zoomed.png %}{% endcapture %}
+[![large graph zoomed]({{ asset_link | absolute_url }} "Large Graphs are an issue - zoomed in.")]({{ asset_link | absolute_url }})
   
 ... I want to work towards something that is really helpful for browsing functions and recognizing patterns among their relationship.  
   

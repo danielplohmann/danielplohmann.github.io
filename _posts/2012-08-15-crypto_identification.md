@@ -24,7 +24,7 @@ The main idea is pretty straight forward:
 While the approach described in the paper is applied to dynamically achieved instruction traces, there is no reason why not to employ it in static code analysis. So my goal for today is to show you how to make "academic things" practically usable. ;) 
  
 I use the following set of arithmetic/logic instructions, please tell me if I missed something: 
-```
+```json
 [
     "add", "and", "or", "adc", "sbb", "and", 
     "sub", "xor", "inc", "dec", "daa", "aaa", 
@@ -35,7 +35,8 @@ I use the following set of arithmetic/logic instructions, please tell me if I mi
 
 The following screenshot shows the widget in action: 
 
-[![crypto identification](/assets/20120815/crypto_identification.png "Crypto Identification")](/assets/20120815/crypto_identification.png)
+{% capture asset_link %}{% link /assets/20120815/crypto_identification.png %}{% endcapture %}
+[![crypto identification]({{ asset_link | absolute_url }} "Crypto Identification")]({{ asset_link | absolute_url }})
 
 The functionality I just described is located in the upper part of the widget. There are three double-sliders that can be used to adjust the following parameters: 
  * **Range of Arithmetic/Logic Rating:** The above mentioned ratio of arithmetic/logic instruction to total instructions, but calculated on basic block level instead of function level.
@@ -56,7 +57,8 @@ The filters are set to show only blocks with a rating of above 30%, with a size 
  
 Among the 23 blocks is the following one: 
 
-[![citadel rc4](/assets/20120815/citadel.png "Citadel's modified RC4 stream cipher")](/assets/20120815/citadel.png)
+{% capture asset_link %}{% link /assets/20120815/citadel.png %}{% endcapture %}
+[![citadel rc4]({{ asset_link | absolute_url }} "Citadel's modified RC4 stream cipher")]({{ asset_link | absolute_url }})
 
 containing the modified stream cipher that is used in Citadel. 
 In addition to the normal XOR/substitutions, Citadel also XORs against the characters of a static hash contained in the binary, which is considered one of the "advancements" from its predecessor Zeus 2. 
@@ -71,7 +73,8 @@ The second part of the widget does what you might have expected in the first pla
 It's basically inspired by tools like the IDA findcrypt plugin or the KANAL plugin for PEiD. It does the same job, except being directly coupled to IDA and allowing to instantly jump to the code locations referencing the identified constants. 
 The following screenshot (from an old but gold conficker sample) shows both types of matches: 
 
-[![conficker constants](/assets/20120815/conficker.png "Crypto constants found in Conficker")](/assets/20120815/conficker.png)
+{% capture asset_link %}{% link /assets/20120815/conficker.png %}{% endcapture %}
+[![conficker constants]({{ asset_link | absolute_url }} "Crypto constants found in Conficker")]({{ asset_link | absolute_url }})
 
 The colors mean: 
  * **<span style="color: #666666;">[black] referenced by:</span>** constant somewhere (e.g. data section), referenced by code.
