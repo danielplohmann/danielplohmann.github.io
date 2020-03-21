@@ -5,7 +5,7 @@ author:             Daniel Plohmann
 date:               2013-01-05 02:00:00 +0100
 last_modified_at:   2013-01-05 02:00:00 +0100
 categories:         blog
-tags:               [conference, review]
+tags:               idascope
 ---
 
 Originally, I only wanted to give a short update on the stuff I did to IDAscope at the very end of the 29c3 post... 
