@@ -21,7 +21,8 @@ Happy day, this meant that the desired functionality could be immediately integr
 
 Here is a screenshot of the widget in action:
 
-[![yara scan](/assets/20140207/yarascan_blog.png "YARA Scanner in action.")](/assets/20140207/yarascan_blog.png)
+{% capture asset_link %}{% link /assets/20140207/yarascan_blog.png %}{% endcapture %}
+[![yara scan]({{ asset_link | absolute_url }} "YARA Scanner in action.")]({{ asset_link | absolute_url }})
 
 I used some binary (`BISCUIT`, `268eef019bf65b2987e945afaf29643f`) from [Mila Parkour's][twitter mila] [Contagio Malware Dump][contagion dump apt1] collection of APT1 stuff and the signatures as provided by [AlienVaultLabs][yara alienvault] for developing/testing and the demo screenshot. 
 Keep up the good work!
@@ -32,7 +33,7 @@ No! It comes in handy as I will outline in the description up next.
 ### Fiddling with YARA in Python
 
 Everyone who has ever played with YARA and Python is probably familiar with its basic usage, like (examples taken from [YARA's manual][yara manual]):
-```
+```python
 import yara
 
 rules = yara.compile(filepath="/path")
@@ -44,7 +45,7 @@ Since YARA is intended to be fast, the `rules` object potentially contains multi
 I always missed the ability here to inspect those signatures loaded in detail, like having access to their names and strings of individual signatures. 
 Maybe it's possible, I just never managed to do so.
 A probably lesser known but cool feature of YARA are match callbacks. It comes in pretty handy as a workaround in this context:
-```
+```python
 import yara
 
 def cb(data):
@@ -57,7 +58,7 @@ rules.match(data=suspicious, callback=cb)
 
 ```
 Each time the callback is fired, we receive a dictionary "data" like this one:
-```
+```json
 {
     'tags': [
         'foo', 
