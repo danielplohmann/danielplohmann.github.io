@@ -63,11 +63,13 @@ Furthermore, QTextBrowser fully suffices our needs as it is able to render basic
 
 The result looks like this:
 
-[![WinAPI Browsing](/assets/20120725/winapi_browsing.png "WinAPI Browsing")](/assets/20120725/winapi_browsing.png)
+{% capture asset_link %}{% link /assets/20120725/winapi_browsing.png %}{% endcapture %}
+[![WinAPI Browsing]({{ asset_link | absolute_url }} "WinAPI Browsing")]({{ asset_link | absolute_url }})
 
 The links you see in the picture there are all functional, which is really nice to get some context around the API you are currently reading about. And because of course we want to be hip, I used QCompleter to give search suggestions based on the keywords:  
 
-[![QCompleter](/assets/20120725/qcomplete.png "QCompleter")](/assets/20120725/qcomplete.png)
+{% capture asset_link %}{% link /assets/20120725/qcomplete.png %}{% endcapture %}
+[![QCompleter]({{ asset_link | absolute_url }} "QCompleter")]({{ asset_link | absolute_url }})
 
 Clicking on the API names in the first picture shown above in the data flow section will also bring up the respective API page, changing window focus to the browser.  
 As possible future features for this, I think of extending the context menu (right click) of the IDA View by a "search in WinAPI" in order to ease use and also cover names that are not targeted by the set of semantic definitions. 
