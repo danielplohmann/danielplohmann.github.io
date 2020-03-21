@@ -63,7 +63,8 @@ The specification for a profile looks like this and should be easy to extend (JS
     }]
 }
 ```
-  
+As you can see, it's easily extendable.
+
 ### Future
 
 Regarding future updates on IDAscope, I obviously took almost half a year off from developing until now. 

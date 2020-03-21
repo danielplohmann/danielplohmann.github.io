@@ -98,10 +98,18 @@ The first example is the standard sandbox (`stdbox`), which hooks a range of int
 I have gone for a harmless example and traced the creation of a new file on disk through notepad.exe ([uploaded here][trace notepad]).  
 Most of the lines in the log file are noise, important are these:  
 ```
-2014-01-29 12:05:59,878 - INFO - kernel32.dll.CreateFileW(C:\Documents and Settings\redacted\Desktop\test.txt, 0x80000000, 3, 0, 3, 0x00000080,0)
+2014-01-29 12:05:59,878 - INFO - kernel32.dll.CreateFileW(\
+    C:\Documents and Settings\redacted\Desktop\test.txt,\
+    0x80000000, 3, 0, 3, 0x00000080,0)
+
 [...]
-2014-01-29 12:05:59,898 - INFO - kernel32.dll.CreateFileW(C:\Documents and Settings\redacted\Desktop\test.txt, 0xc0000000, 3, 0, 4, 0x00000080,0)
-2014-01-29 12:05:59,898 - INFO - kernel32.dll.WriteFile(0x00000138, 0x000e0db8, 0x0000000c, 0x0007faf0, 0x00000000)
+
+2014-01-29 12:05:59,898 - INFO - kernel32.dll.CreateFileW(\
+    C:\Documents and Settings\redacted\Desktop\test.txt, \
+    0xc0000000, 3, 0, 4, 0x00000080,0)
+
+2014-01-29 12:05:59,898 - INFO - kernel32.dll.WriteFile(\
+    0x00000138, 0x000e0db8, 0x0000000c, 0x0007faf0, 0x00000000)
 ```
 As you can see filename is `test.txt` on the desktop. 
 The first call to `kernel32!CreateFileW` with `GENERIC_READ` access and `CREATE_ALWAYS|CREATE_NEW` flags create the file. 
