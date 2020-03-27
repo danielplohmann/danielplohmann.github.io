@@ -45,6 +45,11 @@
   a:visited {
     color: #a0a;
   }
+
+  b {
+    color: #a00;
+    font-weight: bold;
+  }
   
   table {
     font-size: inherit;
