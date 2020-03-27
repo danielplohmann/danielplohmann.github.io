@@ -123,7 +123,7 @@ After decrypting all functions, we can already start analyzing the sample effect
 But we are not quite done yet, and the [second post]({% post_url 2015-08-18-kf-fobber-strings %}) looks closer at the inline usage of encrypted strings.
 
 sample used:  
-md5: `49974f869f8f5d32620685bc1818c957`
+md5: `49974f869f8f5d32620685bc1818c957`  
 sha256: `93508580e84d3291f55a1f2cb15f27666238add9831fd20736a3c5e6a73a2cb4`
 
 *[link to original post on blogspot][blogspot post].*
