@@ -50,21 +50,21 @@ After decryption, our function makes a lot more sense and we can see the default
 [![ida screenshot]({{ asset_link | absolute_url }} "The decrypted equivalent of function sub_95112A, revealing some *real* code.")]({{ asset_link | absolute_url }})
 
 Also note the parameters:
- * 0x951125 - key: 0x7B
- * 0x951126 - length: 0x4629^0x461F -> 0x36 bytes
- * 0x951128 - encryption flag: 0x01
+ * `0x951125` - key: `0x7B`
+ * `0x951126` - length: `0x4629^0x461F` -> `0x36` bytes
+ * `0x951128` - encryption flag: `0x01`
 
 So far so good. Now let's decrypt all of those functions automatically.
 
 ### Decrypt All The Things
 
-First, we want to find our decryption function. For all Fobber samples I looked at, the regex r"\x60\x8B.\x24\x20\x66" was delivering unique results for locating the decryption function.
+First, we want to find our decryption function. For all Fobber samples I looked at, the regex `r"\x60\x8B.\x24\x20\x66"` was delivering unique results for locating the decryption function.
 
-Next, we want to find all calls to this decryption function. For this we can use the regex r"\xE8" to find all potential "call rel_offset" instructions.
-Then we just need to do some address math and check if the call destination (calculated as: image_base + call_origin + relative_call_offset + 5) is equal to the address of our decryption function.
+Next, we want to find all calls to this decryption function. For this we can use the regex `r"\xE8"` to find all potential `call rel_offset` instructions.
+Then we just need to do some address math and check if the call destination (calculated as: `image_base + call_origin + relative_call_offset + 5`) is equal to the address of our decryption function.
 Should this be the case, we can extract the parameters as described above and decrypt the code.
 
-We then only need to exchange the respective bytes in our binary with the decrypted bytes. In the following code I also set the decryption flag and fix the function ending with a "retn" (0xC3) instruction to ease IDA's job of identifying functions afterwards. Otherwise, rinse/repeat until all functions are decrypted.
+We then only need to exchange the respective bytes in our binary with the decrypted bytes. In the following code I also set the decryption flag and fix the function ending with a `retn` (`{ C3 }`) instruction to ease IDA's job of identifying functions afterwards. Otherwise, rinse/repeat until all functions are decrypted.
 
 Code:
 ```python
@@ -120,7 +120,7 @@ However, we are not quite done yet, as IDA still barfs on a couple of functions.
 ### Conclusion
 
 After decrypting all functions, we can already start analyzing the sample effectively.
-But we are not quite done yet, and the [second post]({% post_url 2012-08-18-kf-fobber-strings %}) looks closer at the inline usage of encrypted strings.
+But we are not quite done yet, and the [second post]({% post_url 2015-08-18-kf-fobber-strings %}) looks closer at the inline usage of encrypted strings.
 
 sample used:  
 md5: `49974f869f8f5d32620685bc1818c957`

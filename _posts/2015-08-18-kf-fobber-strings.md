@@ -8,7 +8,7 @@ categories:         blog
 tags:               bytetlas, knowledge fragment, fobber
 ---
 
-In the [other blog post]({% post_url 2012-08-18-kf-unwrapping-fobber %}) on Fobber, I have demonstrated how to batch decrypt function code, which left us with IDA recognizing a fair amount of code opposed to only a handful of functions:
+In the [other blog post]({% post_url 2015-08-18-kf-unwrapping-fobber %}) on Fobber, I have demonstrated how to batch decrypt function code, which left us with IDA recognizing a fair amount of code opposed to only a handful of functions:
 
 {% capture asset_link %}{% link /assets/20150818/images/fobber_ida_after.png %}{% endcapture %}
 [![ida screenshot]({{ asset_link | absolute_url }} "IDA's view on a code-decrypted Fobber sample.")]({{ asset_link | absolute_url }})
