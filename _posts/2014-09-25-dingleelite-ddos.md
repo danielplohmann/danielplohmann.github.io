@@ -8,13 +8,17 @@ categories:         blog
 tags:               bytetlas, malware
 ---
 
-re: [http://www.kernelmode.info/forum/viewtopic.php?f=16&t=3505][kernelmode post]
-sha256: `73b0d95541c84965fa42c3e257bb349957b3be626dec9d55efcc6ebcba6fa489`
+re: [http://www.kernelmode.info/forum/viewtopic.php?f=16&t=3505][kernelmode post]  
+sha256: `73b0d95541c84965fa42c3e257bb349957b3be626dec9d55efcc6ebcba6fa489`  
 malware family: DDoS Bot used by DingleElite (WOPBOT, according to [Emanuele Gentili][twitter emgent])
 
 context found here:
 ```
-"I am a security researcher and found a bot network of infected devices used to perform the DDoS attacks the twitter account thats linked with the botnet is [https://twitter.com/TheDingleElite][twitter dingle] the command and control of this botnet can be watched by using a telnet client and connecting to 89.238.xxx.xxx on tcp port 5 if you need to be made aware of any more information please contact me directly I will privatly disclose the rest of the CnC IP to anyone who is interested."
+"I am a security researcher and found a bot network of infected devices used to perform the DDoS
+attacks the twitter account thats linked with the botnet is https://twitter.com/TheDingleElite
+the command and control of this botnet can be watched by using a telnet client and connecting
+to 89.238.xxx.xxx on tcp port 5 if you need to be made aware of any more information please
+contact me directly I will privatly disclose the rest of the CnC IP to anyone who is interested."
 ```
 
 ### quick static analysis: 
@@ -71,10 +75,10 @@ PKT_BURST: packets sent without a pause (for checking if SECONDS of attack is re
 
 #### related sources (stringdumps, ...) for the same malware family: 
 
-Aug 20th, 2014 [Pastebin][pastebin a] 
-Aug 9th, 2014 [Pastebin][pastebin b] (hints to potentially old C&C server: `89.248.172.14:9` | `192.99.200.69:57`) 
-Mar 7th, 2014 [Pastebin][pastebin c] (hints to potentially old C&C server: `192.99.200.69:57`) 
-Jan 18th, 2014 Malwr (hints to potentially old C&C server: `142.4.215.135`)
+Aug 20th, 2014 [Pastebin][pastebin a]  
+Aug 9th, 2014 [Pastebin][pastebin b] (hints to potentially old C&C server: `89.248.172.14:9` | `192.99.200.69:57`)  
+Mar 7th, 2014 [Pastebin][pastebin c] (hints to potentially old C&C server: `192.99.200.69:57`)  
+Jan 18th, 2014 Malwr (hints to potentially old C&C server: `142.4.215.135`)  
 
 #### All hashes:
 

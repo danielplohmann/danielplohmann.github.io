@@ -52,7 +52,7 @@ or more recently:
 {"id":%lu,"bid":%lu,"os":%lu,"la":%lu,"rg":%lu}
 ```
 
-As its fields are likely filled in with a `sprintf`*` function, we can identify the offset of the `bid` by statically examining parameters passed to said string format API call (this can e.g. be achieved with a carefully crafted regex).
+As its fields are likely filled in with a `sprintf` function, we can identify the offset of the `bid` by statically examining parameters passed to said string format API call (this can e.g. be achieved with a carefully crafted regex).
 
 {% capture asset_link %}{% link /assets/20150415/ida_build_id_ref.png %}{% endcapture %}
 [![hxf config]({{ asset_link | absolute_url }} "Highlighted Configuration in a Hexdump")]({{ asset_link | absolute_url }})
@@ -63,7 +63,7 @@ For the tested memory dumps, the resulting potential configuration buffer had a 
 #### Identifying crypted C&C URL candidates
 
 As described above, the C&C URLs are stored as a linked list.
-Randomly assuming that a server address will be somewhere between 0x8 and 0x30 characters long, we can extract all byte sequences from the potential configuration buffer that match this property (start bytes highlighted):
+Randomly assuming that a server address will be somewhere between `0x8` and `0x30` characters long, we can extract all byte sequences from the potential configuration buffer that match this property (start bytes highlighted):
 <pre>
 0000  <b>14</b> 07 03 00 d4 e2 04 63 53 03 86 e4 82 5d <b>97</b> 1c   .......cS....]..
 0010  c6 f8 58 9c f0 8f <b>2c</b> da 79 <b>0b</b> 6d <b>1c</b> ce cb 9d ba   ..X...,.y.m.....
@@ -139,16 +139,18 @@ offset: 0x0f0, 1b->cbc7a3...
 offset: 0x106, 28->6b3f39...
 ```
 
+The next step is to identify the RC4 key based on this.
+
 #### Identifying the RC4 key
 
 Next, we can try to decrypt these URL candidates by using all possible RC4 keys from the potential configuration buffer.
 For this, we take every consecutive 16 bytes, hex encode them, reverse their order, and perform RC4 against all C&C URL candidates.
 
 Example: candidate sequence at offset `0xd1`, length: `0x1d` bytes:
-```
+<pre>
 00d0  <b>1d</b> 0d 4c d8 db 84 4d 56 0d 54 9e 15 24 21 19 ff   ..L...MV.T..$!..
 00e0  11 53 e6 26 59 89 a7 16 40 04 af b7 13 d6 <b>00</b> f0   .S.&Y...@.......
-```
+</pre>
 
 bruteforce decryption attempts:
 ```
@@ -167,21 +169,21 @@ finally we hit a result of `687474703a2f2f` which translates to `http://` and th
 
 As soon as we decrypt the first sequence starting with "http" we have likely identified the correct RC4 key and can proceed to decrypt all other candidates to complete the list of C&C URLs.
 
-RC4 key used for config:  `d31b5b33137884d2a853a8f2cd74ac7b`
+RC4 key used for config:  `d31b5b33137884d2a853a8f2cd74ac7b`  
 Actual traffic RC4 key: `b7ca47dc2f8a358a2d48873133b5b13d`
 
 All resolving candidates:
 
-`0d4cd8db844d560d549e15242119ff1153e6265989a7164004afb713d6`
+`0d4cd8db844d560d549e15242119ff1153e6265989a7164004afb713d6`  
 -> `hxxp://sunglobe.org/index.php`
 
-`0d4cd8db844d56134083062d3c19fb4b55ba2f1394e61b4b18e4bf55d65c98`
+`0d4cd8db844d56134083062d3c19fb4b55ba2f1394e61b4b18e4bf55d65c98`  
 -> `hxxp://masterbati.net/index.php`
 
-`0d4cd8db844d564e52c65c3a3b54f35158f1395890a102`
+`0d4cd8db844d564e52c65c3a3b54f35158f1395890a102`  
 -> `hxxp://0s6.ru/index.php`
 
-`0d4cd8db844d56134083062d3c13f55259f3341f84ac5c4613ece812c8508d878b59a8d6`
+`0d4cd8db844d56134083062d3c13f55259f3341f84ac5c4613ece812c8508d878b59a8d6`  
 -> `hxxp://masterhomeguide.com/index.php`
 
 ### Conclusion
