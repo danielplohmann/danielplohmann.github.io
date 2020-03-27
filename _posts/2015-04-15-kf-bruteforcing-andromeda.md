@@ -5,7 +5,7 @@ author:             Daniel Plohmann
 date:               2015-04-15 01:00:00 +0100
 last_modified_at:   2015-04-15 01:00:00 +0100
 categories:         blog
-tags:               bytetlas, knowledge fragment
+tags:               bytetlas, knowledge fragment, andromeda
 ---
 
 This blog post details how the more recent versions of Andromeda store their C&C URLs and RC4 key and how this information can be bruteforced from a memory dump.
@@ -191,11 +191,16 @@ All resolving candidates:
 It's obvious that the above described method can be optimized here and there. But since it executes in less than a second on a given memdump and gave me good results on a collection of Andromeda dumps, I didn't bother to improve it further.
 
 sample used:  
-  md5: `a17247808c176c81c3ea66860374d705`  
+  md5: `a17247808c176c81c3ea66860374d705` (defanged version available [here][defanged sample])  
   sha256: `ce59dbe27957e69d6ac579080d62966b69be72743143e15dbb587400efe6ce77`
+
+Extraction script found [here][extraction]
+
 
 
 *[link to original post on blogspot][blogspot post].*
 
+[extraction]: https://github.com/danielplohmann/danielplohmann.github.io/blob/master/assets/20150415/andromeda_config.py
+[defanged sample]: https://github.com/danielplohmann/danielplohmann.github.io/blob/master/assets/20150415/a17247808c176c81c3ea66860374d705_defanged.bin
 [egghunting]: https://www.corelan.be/index.php/2010/01/09/exploit-writing-tutorial-part-8-win32-egg-hunting/
-[blogspot post]: https://pnx-tf.blogspot.com/2014/02/idascope-v11-yara-scanning.html
+[blogspot post]: http://byte-atlas.blogspot.com/2015/04/kf-andromeda-bruteforcing.html
