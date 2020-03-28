@@ -33,4 +33,4 @@ Over there, you can find more info on the families included and the methodology 
 [malpedia slides]: https://www.botconf.eu/wp-content/uploads/2017/12/2017-DanielPlohmann-Malpedia.pdf
 [malpedia]: https://malpedia.caad.fkie.fraunhofer.de/
 
-[blogspot post]:http://byte-atlas.blogspot.com/2018/01/zeus-similarity-showdown.html
+[blogspot post]: http://byte-atlas.blogspot.com/2018/01/zeus-similarity-showdown.html
