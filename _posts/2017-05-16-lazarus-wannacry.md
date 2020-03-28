@@ -1,6 +1,6 @@
 ---
 layout:             post
-title:              "Quick analysis write-up on the "link" between Lazarus and WannaCry"
+title:              "Quick analysis write-up on the link between Lazarus and WannaCry"
 author:             Daniel Plohmann
 date:               2017-05-16 01:00:00 +0100
 last_modified_at:   2017-05-16 01:00:00 +0100
