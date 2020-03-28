@@ -23,6 +23,8 @@ The remainder of this post is structured as follows:
 6. [VirtualBox Hypervisor Detectability (update: solved!)](#hypervisor)
 7. [Summary](#summary)
 
+Let's go.
+
 ### Goals<a name="goals" />
 
 Before starting out, it's good to know and plan where we are heading.
@@ -40,9 +42,9 @@ I don't aim for a perfect solution (perfection is the enemy of efficiency) but a
 
 In the back of my head, I had some resources I wanted to use whenever I would have to create a new base VM, namely:
 
-1) [VMCloak][vmcloak] by [skier_t][twitter skier]
-2) [VBoxHardenedLoader][vboxhardenedloader] by [hfiref0x][twitter hfirefox] (and [kernelmode thread][kernelmode link] as installation guide)
-3) [antivmdetection][antivmdetection] by [nsmfoo][twitter nsmfoo] (and blog posts [1][blog 1 nsmfoo] [2][blog 2 nsmfoo] [3][blog 3 nsmfoo] [4][blog 4 nsmfoo] [5][blog 5 nsmfoo])
+1. [VMCloak][vmcloak] by [skier_t][twitter skier]
+2. [VBoxHardenedLoader][vboxhardenedloader] by [hfiref0x][twitter hfirefox] (and [kernelmode thread][kernelmode link] as installation guide)
+3. [antivmdetection][antivmdetection] by [nsmfoo][twitter nsmfoo] (and blog posts [1][blog 1 nsmfoo] [2][blog 2 nsmfoo] [3][blog 3 nsmfoo] [4][blog 4 nsmfoo] [5][blog 5 nsmfoo])
 
 Since I wanted to understand all the steps, I took VMCloak only for theoretical background. 
 VBoxHardenedLoader is targeting a Win7 x64 as host system, however I use **Ubuntu 16.04** with **VirtualBox 5.0.24** so this wasn't immediately usable as well. 
@@ -86,6 +88,7 @@ Responsible for this were the 3 entries
 1. DmiBIOSVersion
 2. DmiBoardAssetTag
 3. DmiBoardLocInChass
+
 Which were set by `<DmiSystemProduct>.sh` to an integer value and VirtualBox was pretty unhappy with that fact, expecting a string. 
 Changing these to random strings fixed the issue though. So this may be one of the pitfalls you may run into when using the tool. 
 Setting the ACPI CustomTable however worked fine.
