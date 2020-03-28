@@ -26,15 +26,28 @@ tags:               [bytetlas, "knowledge fragment"]
 
 
 
-Example for an image link:
+# Example for an image link with extended URL:
 
 {% capture asset_link %}{% link /REPLACE_WITH_ASSET_LINK %}{% endcapture %}
 [![screenshot]({{ asset_link | absolute_url }} "REPLACE_WITH_DESCRIPTION")]({{ asset_link | absolute_url }})
 
-Example for a hyperlink:
+# Example for a hyperlink:
 
 [link description][https://link_url.com]
 
-Relative link:
+# Relative link to other posts:
 
 [link text]({% post_url 2012-08-20-idascope-beta %})
+
+# Table: 
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+# Local links:
+
+[link to marker](#marker)
+### Heading to be marked<a name="marker" />

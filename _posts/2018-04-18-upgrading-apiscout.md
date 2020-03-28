@@ -95,12 +95,12 @@ MwNLFAEAAYhlADAQABgEAxAQCAAQAAIA3wAMAz_kYitAQhAFA10BD_^/fDMBn.
 -_mADwgASgDTkAAEgPFNDHAgbBhIAGToaKQ
 </pre>  
 
-| Family     | ApiQR |
-| ---------- | ----- |
-| RockLoader | {% capture asset_link %}{% link /assets/20180418/apiqr_rockloader.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "RockLoader")]({{ asset_link | absolute_url }}) |
-| TeslaCrypt | {% capture asset_link %}{% link /assets/20180418/apiqr_teslacrypt.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "TeslaCrypt")]({{ asset_link | absolute_url }})
-| Citadel | {% capture asset_link %}{% link /assets/20180418/apiqr_citadel.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "Citadel")]({{ asset_link | absolute_url }})
-| DarkComet | {% capture asset_link %}{% link /assets/20180418/apiqr_darkcomet.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "DarkComet")]({{ asset_link | absolute_url }})
+| some       | examples |
+| ---------- | -------- |
+| {% capture asset_link %}{% link /assets/20180418/apiqr_rockloader.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "RockLoader")]({{ asset_link | absolute_url }}) | {% capture asset_link %}{% link /assets/20180418/apiqr_teslacrypt.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "TeslaCrypt")]({{ asset_link | absolute_url }}) |
+| RockLoader | TeslaCrypt|
+| {% capture asset_link %}{% link /assets/20180418/apiqr_citadel.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "Citadel")]({{ asset_link | absolute_url }}) | {% capture asset_link %}{% link /assets/20180418/apiqr_darkcomet.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "DarkComet")]({{ asset_link | absolute_url }}) |
+| Citadel | DarkComet |
 
 Next we explain how the base64 like representations shown previously are created.
 
