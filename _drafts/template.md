@@ -33,7 +33,8 @@ tags:               [bytetlas, "knowledge fragment"]
 
 # Example for a hyperlink:
 
-[link description][https://link_url.com]
+[link description][link tag]
+[link tag]: https://link_url.com
 
 # Relative link to other posts:
 
