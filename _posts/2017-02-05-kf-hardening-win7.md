@@ -5,7 +5,7 @@ author:             Daniel Plohmann
 date:               2017-02-05 01:00:00 +0100
 last_modified_at:   2017-02-05 01:00:00 +0100
 categories:         blog
-tags:               bytetlas, knowledge fragment, virtualization, hardening
+tags:               [bytetlas, "knowledge fragment", virtualization, hardening]
 ---
 
 After some abstinence, I thought it might be a good idea to write something again. The perfect occasion came yesterday when I decided to build myself a new VM base image to be used for future malware analysis.

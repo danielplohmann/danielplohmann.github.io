@@ -5,7 +5,7 @@ author:             Daniel Plohmann
 date:               2015-08-18 01:00:00 +0100
 last_modified_at:   2015-08-18 01:00:00 +0100
 categories:         blog
-tags:               bytetlas, knowledge fragment, fobber
+tags:               [bytetlas, "knowledge fragment", malware, fobber]
 ---
 
 About two weeks ago I came across an interesting sample using an interesting anti-analysis pattern.

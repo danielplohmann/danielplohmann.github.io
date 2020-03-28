@@ -5,7 +5,7 @@ author:             Daniel Plohmann
 date:               2015-04-15 01:00:00 +0100
 last_modified_at:   2015-04-15 01:00:00 +0100
 categories:         blog
-tags:               bytetlas, knowledge fragment, andromeda
+tags:               [bytetlas, "knowledge fragment", malware, andromeda]
 ---
 
 This blog post details how the more recent versions of Andromeda store their C&C URLs and RC4 key and how this information can be bruteforced from a memory dump.

@@ -2,10 +2,10 @@
 layout:             post
 title:              "REPLACE_WITH_POST_TITLE"
 author:             Daniel Plohmann
-date:               2020-03-20 11:15:00 +0100
+date:               2020-03-20 01:00:00 +0100
 last_modified_at:   REPLACE_WITH_ADJUSTED_DATE_FROM_ABOVE
 categories:         blog
-tags:               bytetlas, knowledge fragment
+tags:               [bytetlas, "knowledge fragment"]
 ---
 
 

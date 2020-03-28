@@ -5,7 +5,7 @@ author:             Daniel Plohmann
 date:               2014-09-25 01:00:00 +0100
 last_modified_at:   2014-09-25 01:00:00 +0100
 categories:         blog
-tags:               bytetlas, malware
+tags:               [bytetlas, malware, "dinglelite bot"]
 ---
 
 re: [http://www.kernelmode.info/forum/viewtopic.php?f=16&t=3505][kernelmode post]  
