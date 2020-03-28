@@ -72,23 +72,35 @@ One cool thing that you can do with a vector of length 1024 is fitting it into a
 {% capture asset_link %}{% link /assets/20180418/hilbert_categories.png %}{% endcapture %}
 [![screenshot]({{ asset_link | absolute_url }} "ApiQR representation: Hilbert curve for our 1024 bit ApiVector with the semantic categories")]({{ asset_link | absolute_url }})
 
-Here are some example visualizations for a few families. You can also click them to have their vectors viewed in Malpedia:
- * RockLoader - `A8gAgAFAIA3gA7IA4EAACA7CQA4QA8QABA3EA6FAEA5CA3IA69BAEAABAABA10`
- * TeslaCrypt - `AAgAAgAAwAgAFQIAQMwysA5JA3gEQAgACA3BgCQLAAQACFCgIAIAELJBIA5QBL}AEAiA3GAEQA58EgIASwA6BABAABAgA6QAKIA`
- * Citadel - `ErkAAQIABBpe,QIgUIwytA5JzhgAOYAm.aBhMwBq]Ot+twChA,]gIABLBAYCiVMswMAZACAA?BjBEIQAAgAIwj-aBCQNA5QAIAD,-eQoiQkQmBAH]DA3ngACAAQAEEAALI-kAE^acSzABCAABhSBEAREgBhgEQCXoYI+`
- * DarkComet - `AARogzQx/,wIiQcwCuABj.RJDlujHYQgv*AC,_fe@LO-}TIcIA3IasLJBgCAntMwNLFAEAAYhlADAQABgEAxAQCAAQAAIA3wAMAz_kYitAQhAFA10BD_^/fDMBn.-_mADwgASgDTkAAEgPFNDHAgbBhIAGToaKQ`
+Here are some example visualizations for a few families. You can also click them to have their vectors viewed in Malpedia:  
+RockLoader: 
+<pre>
+A8gAgAFAIA3gA7IA4EAACA7CQA4QA8QABA3EA6FAEA5CA3IA69BAEAABAABA10  
+</pre>  
+TeslaCrypt: 
+<pre>
+AAgAAgAAwAgAFQIAQMwysA5JA3gEQAgACA3BgCQLAAQACFCgIAIAELJBIA5QBL  
+}AEAiA3GAEQA58EgIASwA6BABAABAgA6QAKIA
+</pre>  
+Citadel: 
+<pre>
+ErkAAQIABBpe,QIgUIwytA5JzhgAOYAm.aBhMwBq]Ot+twChA,]gIABLBAYCiV  
+MswMAZACAA?BjBEIQAAgAIwj-aBCQNA5QAIAD,-eQoiQkQmBAH]DA3ngACAAQA  
+EEAALI-kAE^acSzABCAABhSBEAREgBhgEQCXoYI+
+</pre>  
+DarkComet: 
+<pre>
+AARogzQx/,wIiQcwCuABj.RJDlujHYQgv*AC,_fe@LO-}TIcIA3IasLJBgCAnt  
+MwNLFAEAAYhlADAQABgEAxAQCAAQAAIA3wAMAz_kYitAQhAFA10BD_^/fDMBn.  
+-_mADwgASgDTkAAEgPFNDHAgbBhIAGToaKQ
+</pre>  
 
-{% capture asset_link %}{% link /assets/20180418/apiqr_rockloader.png %}{% endcapture %}
-[![screenshot]({{ asset_link | absolute_url }} "RockLoader")]({{ asset_link | absolute_url }})
-
-{% capture asset_link %}{% link /assets/20180418/apiqr_teslacrypt.png %}{% endcapture %}
-[![screenshot]({{ asset_link | absolute_url }} "TeslaCrypt")]({{ asset_link | absolute_url }})
-
-{% capture asset_link %}{% link /assets/20180418/apiqr_citadel.png %}{% endcapture %}
-[![screenshot]({{ asset_link | absolute_url }} "Citadel")]({{ asset_link | absolute_url }})
-
-{% capture asset_link %}{% link /assets/20180418/apiqr_darkcomet.png %}{% endcapture %}
-[![screenshot]({{ asset_link | absolute_url }} "DarkComet")]({{ asset_link | absolute_url }})
+| Family     | ApiQR |
+| ---------- | ----- |
+| RockLoader | {% capture asset_link %}{% link /assets/20180418/apiqr_rockloader.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "RockLoader")]({{ asset_link | absolute_url }}) |
+| TeslaCrypt | {% capture asset_link %}{% link /assets/20180418/apiqr_teslacrypt.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "TeslaCrypt")]({{ asset_link | absolute_url }})
+| Citadel | {% capture asset_link %}{% link /assets/20180418/apiqr_citadel.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "Citadel")]({{ asset_link | absolute_url }})
+| DarkComet | {% capture asset_link %}{% link /assets/20180418/apiqr_darkcomet.png %}{% endcapture %}[![screenshot]({{ asset_link | absolute_url }} "DarkComet")]({{ asset_link | absolute_url }})
 
 Next we explain how the base64 like representations shown previously are created.
 
@@ -176,8 +188,16 @@ For this we use runlength-encoding, with which we can remove the repetitive cons
 
 With that, we can now “compress” the vector as follows.
 
-Uncompressed: `AAAAAAAAgAgAFAIAAAgAAAAAAAIAAAAEAACAAAAAAACQAAAAQAAAAAAAAQABAAAEAAAAAAFAEAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAEAABAABAAAAAAAAAA`
-Compressed: `A8gAgAFAIA3gA7IA4EAACA7CQA4QA8QABA3EA6FAEA5CA3IA69BAEAABAABA10`
+Uncompressed:  
+<pre> 
+AAAAAAAAgAgAFAIAAAgAAAAAAAIAAAAEAACAAAAAAACQAAAAQAAAAAAAAQABAA
+AEAAAAAAFAEAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAABAEAABAABAAAAAAAAAA
+</pre>
+Compressed:  
+<pre>
+A8gAgAFAIA3gA7IA4EAACA7CQA4QA8QABA3EA6FAEA5CA3IA69BAEAABAABA10
+</pre>
 
 This is also the final representation.
 
@@ -186,6 +206,8 @@ Here are some statistics, taking malpedia as basis (1957 dumps for 637 distinct 
  * Avg number of APIs represented in ApiVector: 100.053 (82.258% coverage)
  * Avg ApiVector length (compressed): 92.438 bytes
  * Compression Rate (vs. 172 bytes uncompressed): 1.86x
+
+ So given that the whole content in the vector can be recovered, that's pretty cool.
 
 ### Okay, but how can I use this?
 
