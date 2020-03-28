@@ -34,3 +34,7 @@ Example for an image link:
 Example for a hyperlink:
 
 [link description][https://link_url.com]
+
+Relative link:
+
+[link text]({% post_url 2012-08-20-idascope-beta %})
