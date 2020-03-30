@@ -38,6 +38,7 @@ p {
 
 a {
   color: #33dd00;
+  border: none;
 }
 
 a:visited {
