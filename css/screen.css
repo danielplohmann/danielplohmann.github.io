@@ -184,6 +184,7 @@ ul.posts {
   h3 {
     font-size: 140%;
     color: #43e702;
+    margin-top: 1.5em;
   }
 
   .post-date {
