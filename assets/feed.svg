@@ -6,8 +6,8 @@
   <title>RSS feed icon</title>
 
   <style type="text/css">
-    .button {stroke: none; fill: orange;}
-    .symbol {stroke: none; fill: white;}
+    .button {stroke: none; fill: #459412;}
+    .symbol {stroke: none; fill: #dddddd;}
   </style>
 
   <rect   class="button" width="8" height="8" rx="1.5" />
