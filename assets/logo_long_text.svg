@@ -13,8 +13,8 @@
    height="143.40553"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="logo_long_embedded.svg">
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Neues Dokument 1">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -25,7 +25,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="199.25334"
+     inkscape:cx="446.23564"
      inkscape:cy="-97.098804"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -34,9 +34,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="2560"
-     inkscape:window-height="1364"
-     inkscape:window-x="0"
+     inkscape:window-width="1871"
+     inkscape:window-height="1056"
+     inkscape:window-x="49"
      inkscape:window-y="24"
      inkscape:window-maximized="1" />
   <metadata
@@ -136,46 +136,18 @@
          id="path3952"
          d="m 322.14286,38.571428 -0.71429,54.642858 37.5,0 0.71429,-15 13.92857,18.214285 129.64286,-2.857143 8.21428,-10 -0.35714,-45.714285 -25.35714,1.428571 -12.5,17.5 -12.14286,-18.214286 -25.71429,0 -1.07143,38.571429 -17.14285,-0.714286 0,-37.857143 L 400,38.928571 398.21429,44.642857 378.57143,45 377.5,38.928571 l -16.42857,0 -0.71429,15.714286 -3.21428,-1.428571 L 347.5,38.571428 z"
          style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <g
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-         id="text3178">
-        <path
-           d="m 180.81828,959.73248 -0.072,11.16 -0.936,3.456 0.936,0 0.072,19.368 -1.944,6.98402 -12.6,12.456 -27.504,0 0,-56.73602 1.944,-6.984 27.288,0 12.816,10.296 z m -3.096,32.688 -0.072,-14.976 -7.848,0 7.848,-7.848 0.072,-8.352 -10.8,-8.712 -23.112,0 0,50.54402 23.112,0 10.8,-10.65602 z m -14.328,-19.512 -5.328,0 0,-8.064 5.328,0 0,8.064 z m 0,17.856 -5.328,0 0,-9.072 5.328,0 0,9.072 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;font-family:'Dimitri Swank';-inkscape-font-specification:'Dimitri Swank'"
-           id="path4171" />
-        <path
-           d="m 219.63078,984.78848 -1.944,6.984 -6.984,0 0,14.40002 -1.944,6.984 -20.376,0 0,-23.25602 -10.8,-10.584 0,-22.896 1.944,-6.984 40.104,0 0,35.352 z m -3.096,-3.096 0,-29.16 -14.328,0 0,20.376 -5.328,0 0,-20.376 -14.256,0 0,18.504 10.8,10.584 0,21.45602 14.184,0 0,-21.38402 8.928,0 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;font-family:'Dimitri Swank';-inkscape-font-specification:'Dimitri Swank'"
-           id="path4173" />
-        <path
-           d="m 258.37128,1006.1725 -1.944,6.984 -27.792,0 -12.24,-18.79202 0,-37.944 1.944,-6.984 20.448,0 0,6.192 19.584,0 0,50.54402 z m -3.024,-33.26402 -14.328,0 0,17.856 -5.328,0 0,-23.256 19.584,0 0,-8.784 -19.584,0 0,-6.192 -14.256,0 0,33.912 10.8,16.63202 23.04,0 0.072,-30.16802 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;font-family:'Dimitri Swank';-inkscape-font-specification:'Dimitri Swank'"
-           id="path4175" />
-        <path
-           d="m 297.18378,1006.1725 -1.944,6.984 -40.032,0 0,-56.73602 1.944,-6.984 40.032,0 0,18.504 -1.944,6.984 -10.08,0 0,9.864 -1.944,2.88 13.968,0 0,18.50402 z m -3.096,-3.096 0,-12.31202 -19.584,0 0,-9.072 7.56,0 0,-8.784 -7.56,0 0,-8.064 19.584,0 0,-12.312 -33.84,0 0,50.54402 33.84,0 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;font-family:'Dimitri Swank';-inkscape-font-specification:'Dimitri Swank'"
-           id="path4177" />
-        <path
-           d="m 360.67765,1006.1725 -1.944,6.984 -40.104,0 0,-56.73602 1.944,-6.984 27.936,0 12.168,18.792 0,37.94402 z m -3.096,-3.096 0,-33.91202 -10.8,-16.632 -23.112,0 0,50.54402 14.256,0 0,-21.38402 5.4,0 0,21.38402 14.256,0 z m -14.256,-30.16802 -5.4,0 0,-10.368 5.4,10.368 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;font-family:'Dimitri Swank';-inkscape-font-specification:'Dimitri Swank'"
-           id="path4179" />
-        <path
-           d="m 399.41815,1006.1725 -1.944,6.984 -27.792,0 -12.24,-18.79202 0,-37.944 1.944,-6.984 20.448,0 0,6.192 19.584,0 0,50.54402 z m -3.024,-33.26402 -14.328,0 0,17.856 -5.328,0 0,-23.256 19.584,0 0,-8.784 -19.584,0 0,-6.192 -14.256,0 0,33.912 10.8,16.63202 23.04,0 0.072,-30.16802 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;font-family:'Dimitri Swank';-inkscape-font-specification:'Dimitri Swank'"
-           id="path4181" />
-        <path
-           d="m 434.84665,1006.1725 -1.944,6.984 -36.648,0 0,-56.73602 1.944,-6.984 20.448,0 0,38.232 16.2,0 0,18.50402 z m -3.096,-3.096 0,-12.31202 -16.2,0 0,-38.232 -14.256,0 0,50.54402 30.456,0 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;font-family:'Dimitri Swank';-inkscape-font-specification:'Dimitri Swank'"
-           id="path4183" />
-        <path
-           d="m 473.74015,1006.1725 -1.944,6.984 -40.104,0 0,-56.73602 1.944,-6.984 27.936,0 12.168,18.792 0,37.94402 z m -3.096,-3.096 0,-33.91202 -10.8,-16.632 -23.112,0 0,50.54402 14.256,0 0,-21.38402 5.4,0 0,21.38402 14.256,0 z m -14.256,-30.16802 -5.4,0 0,-10.368 5.4,10.368 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;font-family:'Dimitri Swank';-inkscape-font-specification:'Dimitri Swank'"
-           id="path4185" />
-        <path
-           d="m 512.55265,967.94048 -0.72,1.872 0.648,0 0,26.28 -1.944,6.98402 -9,10.08 -31.032,0 0,-17.56802 1.944,-3.816 -1.944,0 0.072,-20.664 14.112,-21.672 27.864,0 0,18.504 z m -3.096,-3.096 0,-12.312 -23.112,0 -10.8,16.632 0,12.528 21.456,0 0,10.008 -21.456,0 0,11.37602 26.568,0 7.272,-8.13602 0,-22.032 -19.944,0 0,-8.064 20.016,0 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72px;font-family:'Dimitri Swank';-inkscape-font-specification:'Dimitri Swank'"
-           id="path4187" />
-      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3178"
+         y="1003.0765"
+         x="140.71428"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Dimitri Swank;-inkscape-font-specification:Dimitri Swank"
+           y="1003.0765"
+           x="140.71428"
+           id="tspan3180"
+           sodipodi:role="line">byte atlas</tspan></text>
     </g>
   </g>
 </svg>
