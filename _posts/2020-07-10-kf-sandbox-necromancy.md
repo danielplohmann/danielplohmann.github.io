@@ -32,24 +32,26 @@ For this we will use Sandbox Necromancy!
 
 
 
-# Sandbox Necromancy?
+### Sandbox Necromancy?
 
 I've chosen the title "Sandbox Necromancy" to describe the following analysis workflow pattern:  
-Given a previous (automated) dynamic analysis and corresponding recordings (sandbox run, PCAP, memory dumps, ...), a malware analyst wants to recreate a specific situation that existed during this dynamic analysis in order to do additional research, e.g. access volatile data.
+*Given a previous (automated) dynamic analysis and corresponding recordings (sandbox run, PCAP, memory dumps, ...), a malware analyst wants to recreate a specific situation that existed during this dynamic analysis in order to do additional research, e.g. access volatile data.*
 
 Over the years I have encountered several variations of this pattern, typically when writing malware traffic/configuration decryptors or unpacking samples.  
-Sandbox Necromancy may become necessary in cases where the _world changed_ since the recordings, for example because the respective C&C server has disappeared or our IP address was blocked or is generally geofenced and we still want to continue to investigate. 
-It can also be required when there is no VM snapshot from a previous investigation available and we have to recreate a situation from whatever data we have still available.
+
+Sandbox Necromancy may become necessary in cases where the _world changed_ since the recordings, for example because the respective C&C server has disappeared or our IP address was blocked or it is generally geofenced and we still want to continue to investigate. 
+It can also be required when there is no VM snapshot from a previous investigation available and we have to recreate a identical runtime situation from whatever data we have still available.
 
 In some cases it also allows us to repeat specific analysis steps decoupled from external dependencies, potentially speeding up the analysis itself.
 
-<iframe src="https://giphy.com/embed/LBrxm7ARM6c0w" width="480" height="233" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mrw-hours-professor-LBrxm7ARM6c0w">via GIPHY</a></p>
+<iframe src="https://giphy.com/embed/LBrxm7ARM6c0w" width="480" height="233" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>  
+<a href="https://giphy.com/gifs/mrw-hours-professor-LBrxm7ARM6c0w">via GIPHY</a>
 
 
 I'll now explain how this applies to the concrete case.
 
 
-# A wild DADSTACHE appears
+### A wild DADSTACHE appears
 
 Please spend a couple minutes reviewing the following [ANY.RUN capture][anyrun_sample].
 
@@ -67,14 +69,14 @@ You may have assessed that:
  * A closer look at the behavior of `cmd.exe` reveals... not much at all, apart from being used to start `LogiMailApp.exe`.
  * A closer look at the behavior of `LogiMailApp.exe` reveals
    * an initial network check-in (`104.248.148.156 (armybar.hopto.org)`), leading to a download of 140kb of data
-   * a file `Encrypted` of size 135kb potentially corresponding to that download
+   * a file `Encrypted[1]` of size 135kb potentially corresponding to that download
    * many more network check-ins (`139.59.31.188 (tomema.myddns.me)`) to another IP address, starting approximately one minute after the first check-in.
 
-This allows to theorize the secondary check-ins have something to do with the `Encrypted` and what happens to it once it is downloaded and in-memory.
+This allows to theorize the secondary check-ins have something to do with the `Encrypted[1]` and what happens to it once it is downloaded and in-memory.
 However, there is no way to simply obtain this decrypted in-memory code fragment, as it was not stored by sandbox.
 
-Because the C&C server of interest (`104.248.148.156 (armybar.hopto.org)`) is dead by now, we can not simply perform a dynamic analysis / debugging session and walk through these steps as `Encrypted` will never be downloaded. 
-Maybe we also don't want the threat actors to know that we are performing this analysis and want to perform network interaction anyway.
+Because the C&C server of interest (`104.248.148.156 (armybar.hopto.org)`) is dead by now, we can not simply perform a dynamic analysis / debugging session and walk through these steps as `Encrypted[1]` will never be downloaded. 
+Maybe we also do not want the threat actors to know that we are performing this analysis and want to perform no network interaction anyway.
 This is where our sandbox necromancy comes into play.
 
 Luckily, ANY.RUN allows us to collect all files needed to revive the execution state. 
@@ -91,11 +93,11 @@ If you want to play along, I have packaged them [here][github_samples] (password
 I spare you the typical warnings about malware and just assume you know what you are doing when you ended up reading so far in. :)
 
 
-# Analysis of LogiMail.dll
+### Analysis of LogiMail.dll
 
 We will now dive a bit deeper, first obtaining an overview using static analysis and then performing the actual necromancy using a debugger.
 
- ## Static Analysis
+## Static Analysis
 
 Looking at `LogiMail.dll`, we quickly identify the function `DllGetClassObject` at offset `0x10002250` as relevant because
  * it makes use of WinAPI calls such as `URLDownloadToFileA`, `ReadFile`, and `CryptDecrypt`, which fits what we are looking for and
@@ -107,10 +109,10 @@ Here's the control flow graph:
 [![screenshot]({{ asset_link | absolute_url }} "DllGetClassObject in IDA")]({{ asset_link | absolute_url }})
 
 Through careful analysis we can learn the following:
- * `"%TMP%\\~liseces1.pcs"`is being passed to `ExpandEnvironmentStringsA`, which replaces `%TEMP%` to the full path. In case of our ANY.RUN trace, this would be `C:\Users\admin\AppData\Local\Temp\~liseces1.pcs`
- * a string `HcRVJiZhrS2e0itoEyk/kaOz5fqCiLl4tr6CI4RlO5FWMRCgDA2dXXbaKMHm9Ffv` is being passed to `CryptStringBinaryA` with flag `0x1` (meaning `CRYPT_STRING_BASE64`), which will then produce the corresponding binary string (`hex(1dc455262661ad2d9ed22b6813293f91a3b3e5fa8288b978b6be822384653b91563110a00c0d9d5d76da28c1e6f457ef)`) in `pbBinary`
- * `pbBinary` is then decrypted using `CryptDecrypt` (with `hKey` being previously set up in `sub_10002430` -> an AES128 key derived using the SHA256 hash of string "7PLGdUh0jc-1GoEl")
- * this decrypted string is then being passed to `UrlDownloadToFileA`, indicating it's potentially an URL. As destination, we can see the previously expanded path for `~liseces1.pcs` being used
+ * `"%TMP%\\~liseces1.pcs"`is being passed to `ExpandEnvironmentStringsA`, which replaces `%TEMP%` by the full path. In case of our ANY.RUN trace, this would be `C:\Users\admin\AppData\Local\Temp\~liseces1.pcs`
+ * a string `HcRVJiZhrS2e0itoEyk/kaOz5fqCiLl4tr6CI4RlO5FWMRCgDA2dXXbaKMHm9Ffv` is being passed to `CryptStringBinaryA` with flag `0x1` (meaning `CRYPT_STRING_BASE64`), which will then produce the corresponding binary string (`1dc455262661ad2d9ed22b6813293f91a3b3e5fa8288b978b6be822384653b91563110a00c0d9d5d76da28c1e6f457ef`) in `pbBinary`
+ * `pbBinary` is then decrypted using `CryptDecrypt` (with `hKey` being previously set up in `sub_10002430` -> an AES128 key derived using the SHA256 hash of string `7PLGdUh0jc-1GoEl`)
+ * this decrypted string is then being passed to `UrlDownloadToFileA`, indicating it's potentially a URL. As download destination, we can see the previously expanded path for `~liseces1.pcs` being used
  * if the download is successful, the file is read (`CreateFileA`, `GetFileSize`, `ReadFile`) and afterwards deleted (`DeleteFileA`)
  * Another call to `CryptDecrypt` is used on the file content now residing in memory.
  * The decrypted contents are being passed to `sub_100012f0` - let's assume for now this is for readying execution of the in-memory payload.
@@ -136,7 +138,8 @@ HRESULT __stdcall DllGetClassObject(const IID *const rclsid, const IID *const ri
   pcbBinary = 260;
   v11 = 0;
   ExpandEnvironmentStringsA("%TMP%\\~liseces1.pcs", Dst, 0x104u);
-  if ( CryptStringToBinaryA(pszString, cchString, 1u, pbBinary, &pcbBinary, 0, 0) && sub_10002430() )
+  if ( CryptStringToBinaryA(pszString, cchString, 1u, pbBinary, &pcbBinary, 0, 0) && 
+       sub_10002430() )
   {
     if ( CryptDecrypt(hKey, 0, 1, 0, pbBinary, &pcbBinary) )
     {
@@ -179,7 +182,8 @@ Alright, armed with this knowledge, we can now plan our ritual.
 
 ## Dynamic Analysis
 
-Given that we already have the involved files, we can simply craft an execution flow in the debugger that will let us ignore the cryptography details and let us directly work with a `~liseces1.pcs` having already appeared magically.
+Given that we already have the involved files, we can simply craft the desired execution flow in the debugger.
+This will let us ignore the cryptography details and work with a `~liseces1.pcs` - which already magically appeared without the need of network access.
 We will only need `LogiMail.dll` and `Encrypted` for this.
 
 Our plan is to simply start up `LogiMail.dll` and step through `DllGetClassObject`.
@@ -194,10 +198,10 @@ The following screenshot shows the initial view after loading the DLL:
 {% capture asset_link %}{% link /assets/20200710/olly_dll_main.png %}{% endcapture %}
 [![screenshot]({{ asset_link | absolute_url }} "Starting in Olly.")]({{ asset_link | absolute_url }})
 
-We see that Windows decided that `0x1c0000`was a good place to load `LogiMail.dll` and simply adjust all offsets to that.
+We see that Windows decided that `0x1c0000` was a good place to load `LogiMail.dll` and simply adjust all offsets to that.
 The function OllyDbg sets us initially to is `DllEntryPoint`. 
-If we would simply redirect our exection now to our target `DllGetClassObject`, we might encounter problems, as execution has not been set up properly (stack cookie and heap initialization, ...).
-So it does not hurt to simpy step over until the end of this function (return at `0x1c2eee`).  
+If we would simply redirect our execution now to our target function `DllGetClassObject`, we might encounter problems, as execution has not been set up properly yet (stack cookie and heap initialization, ...).
+So it does not hurt to simply step over until the end of this function (return at `0x1c2eee`).  
 This is now also an exceptionally great time to create a first VM snapshot. :)
 
 We are now ready to jump (`CTRL+G`) to `DllGetClassObject` at `0x1c2250`.
@@ -218,7 +222,7 @@ Note that the sandbox so far gave us only the server (`armybar.hopto.org`) but n
 As strategized before, we will now *not* execute this API call but instead simply jump over it and proceed to the next instruction `test eax, eax`.
 As we can see, it is expected that `URLDownloadToFileA` would return `0x0` in order to continue into the part of the function that loads the file.
 We can simply clear the EAX register by manipulating its content.
-For convenience, we also don't need to place our `Encrypted` file at the location for shown in the screenshot (`C:\Users\redacted\AppData\Local\Temp\~liseces1.pcs`) but we can simply put it in any other location of our choice and change the path in the dump.  
+For convenience, we also don't need to place our `Encrypted` file at the location for shown in the screenshot (`C:\Users\redacted\AppData\Local\Temp\~liseces1.pcs`) but we can simply put it in any other location of our choice and change the path in the dump.
 The results of these actions (proceed execuction, modify file location) are shown in this screenshot:
 
 {% capture asset_link %}{% link /assets/20200710/olly_dll_urldownloadtofile_passed.png %}{% endcapture %}
