@@ -56,6 +56,9 @@ This time, the whole procedure took me maybe one hour, and that would have been 
 
 Just like last time, I'd like to send you off with a music recommendation, which is `WARGASM UK`'s latest single `Do It So Good`.
 
+**Epilepsy Warning!**
+
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GEyBFg3E_dI" title="Do It So Good" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
