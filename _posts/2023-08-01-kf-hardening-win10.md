@@ -2,8 +2,8 @@
 layout:             post
 title:              "Knowledge Fragment: Hardening Win10 x64 on VirtualBox for Malware Analysis"
 author:             Daniel Plohmann
-date:               2023-08-01 013:00:00 +0100
-last_modified_at:   REPLACE_WITH_ADJUSTED_DATE_FROM_ABOVE
+date:               2023-08-01 10:00:00 +0100
+last_modified_at:   2023-08-01 10:00:00 +0100
 categories:         blog
 tags:               [bytetlas, "knowledge fragment", virtualization, hardening]
 ---
