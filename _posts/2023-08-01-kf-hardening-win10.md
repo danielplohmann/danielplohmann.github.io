@@ -2,8 +2,8 @@
 layout:             post
 title:              "Knowledge Fragment: Hardening Win10 x64 on VirtualBox for Malware Analysis"
 author:             Daniel Plohmann
-date:               2023-08-01 10:00:00 +0100
-last_modified_at:   2023-08-01 10:00:00 +0100
+date:               2023-08-01 08:00:00 +0100
+last_modified_at:   2023-08-01 08:05:00 +0100
 categories:         blog
 tags:               [bytetlas, "knowledge fragment", virtualization, hardening]
 ---
@@ -18,7 +18,7 @@ In this (kind of) update to my previous blog post, I decided to run with the sam
 That means you can essentially just strictly follow the instructions given in the repo at [antivmdetection][antivmdetection] and get a great hardening result.  
 In the following, I will just list a few tweaks that I had to make in order to have a truely green PAfish result:
 
-{% capture asset_link %}{% link /assets/20170205/pafish_result.png %}{% endcapture %}
+{% capture asset_link %}{% link /assets/20230801/pafish_result.png %}{% endcapture %}
 [![screenshot]({{ asset_link | absolute_url }} "PAfish result in the Win10 vbox")]({{ asset_link | absolute_url }})
 
 ### Outside the VM
