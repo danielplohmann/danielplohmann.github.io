@@ -71,8 +71,8 @@ As an example, the available `zlib` is from the evaluations in my PhD thesis and
 [![screenshot]({{ asset_link | absolute_url }} "Symbol import for zlib")]({{ asset_link | absolute_url }})
 
 We expect this procedure to take a while and do this besides all our other projects/work, so check back every now and then to see what was added.  
-Our priority right now is to cover all of MSVC code as shipped with the Visual Studio installers next, and then possibly move on to integrate the precompiled code from the [Shiftmedia][shiftmedia] project, from which also the first `zlib` code was taken.
-Here, things like OpenSSL would likely take priority.  
+Our priority right now is to cover all of `MSVC` code as shipped with the Visual Studio installers next, and then possibly move on to integrate the precompiled code from the [Shiftmedia][shiftmedia] project, from which also the first `zlib` code was taken.
+Here, things like `OpenSSL` would likely take priority.  
 Also, feel free to make recommendations in the [issue tracker][data issues].
 
 With respect to making pre-processed Malpedia data available as well, this would be one of my goals for this year.  
@@ -87,3 +87,4 @@ We will likely do this with two versions, one to allow maintaining the data shar
 [shiftmedia]: https://github.com/ShiftMediaProject
 [data issues]: https://github.com/danielplohmann/mcrit-data/issues
 [twitter rony]: https://twitter.com/r0ny_123
+[link_mcrit_github]: https://github.com/danielplohmann/mcrit
