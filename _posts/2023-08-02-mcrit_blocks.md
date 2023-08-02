@@ -30,13 +30,17 @@ This now allows us to now use the Block Scope widget to query all basic blocks o
 We can see that we get matches for most of the blocks of size 4 instructions and more (which is the lower threshold of the system), with some of them being found in 2 or 3 families.  
 And Hooray, one of the blocks tied specifically to the curious use of the `rand()` function is actually found in both `win.contopee` to `win.wannacry`.
 
+{% capture asset_link %}{% link /assets/20230802/IDA_BlockQuery.png %}{% endcapture %}
+[![screenshot]({{ asset_link | absolute_url }} "Block Scope feature in the MCRIT IDA plugin.")]({{ asset_link | absolute_url }})
+
 Now, the good news is that such queries happen in a very tolerable time frame of around 160ms per basic block for a data set like the one used here.  
 As you can see in the Output box, it took about 1.1 sec to match all blocks against the whole database (39.170.526 indexed basic blocks; 8.516.889 of them unique; across 9.175.530 disassembled functions).  
 As the function viewed here can be considered an average function with respect to its size, it's even viable to just query all blocks whenever a function is viewed for the first time.  
-This is simply enabled when using the "Live Block Queries" checkbox.
+This is simply enabled when using the "Live Block Queries" checkbox.  
 
-{% capture asset_link %}{% link /assets/20230802/IDA_BlockQuery.png %}{% endcapture %}
-[![screenshot]({{ asset_link | absolute_url }} "Block Scope feature in the MCRIT IDA plugin.")]({{ asset_link | absolute_url }})
+The code for the Live tracking uses the UI hooks provided by IDA itself, for which I used [Alex Hanel][twitter nullandnull]'s [Function Trapper Keeper][trapperkeeper] as a template. 
+Thanks for finding out how to deal with this stuff! :)
+
 
 #### Function Scope
 
@@ -87,4 +91,6 @@ We will likely do this with two versions, one to allow maintaining the data shar
 [shiftmedia]: https://github.com/ShiftMediaProject
 [data issues]: https://github.com/danielplohmann/mcrit-data/issues
 [twitter rony]: https://twitter.com/r0ny_123
+[twitter nullandnull]: https://twitter.com/nullandnull
 [link_mcrit_github]: https://github.com/danielplohmann/mcrit
+[trapperkeeper]: http://hooked-on-mnemonics.blogspot.com/2023/03/function-trapper-keeper-ida-plugin.html
