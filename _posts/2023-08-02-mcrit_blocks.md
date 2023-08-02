@@ -35,7 +35,7 @@ As you can see in the Output box, it took about 1.1 sec to match all blocks agai
 As the function viewed here can be considered an average function with respect to its size, it's even viable to just query all blocks whenever a function is viewed for the first time.  
 This is simply enabled when using the "Live Block Queries" checkbox.
 
-{% capture asset_link %}{% link /assets/2030802/IDA_BlockQuery.png %}{% endcapture %}
+{% capture asset_link %}{% link /assets/20230802/IDA_BlockQuery.png %}{% endcapture %}
 [![screenshot]({{ asset_link | absolute_url }} "Block Scope feature in the MCRIT IDA plugin.")]({{ asset_link | absolute_url }})
 
 #### Function Scope
@@ -44,13 +44,13 @@ One of the great features of tools like BinDiff and Diaphora is their graph view
 Since MCRIT is an 1:N and not 1:1 approach, we possibly want something similar but being able to view/match against functions from arbitrary other samples in our database.  
 As we store the control flow graphs and disassembly of all processed functions in MCRIT, we can simply pull this remote information into IDA, leading to this:
 
-{% capture asset_link %}{% link /assets/2030802/IDA_RemoteFunction.png %}{% endcapture %}
+{% capture asset_link %}{% link /assets/20230802/IDA_RemoteFunction.png %}{% endcapture %}
 [![screenshot]({{ asset_link | absolute_url }} "Function Comparison feature in the MCRIT IDA plugin.")]({{ asset_link | absolute_url }})
 
 The coloring used here is similar to MCRITweb, with blue blocks indicating hash-similar blocks, and green over yellow to red decreasing similarity.  
 One limitation is that we seemingly cannot modify the font color used in the custom GraphViewer(?), so this doesn't have decent contrast in dark mode right now:
 
-{% capture asset_link %}{% link /assets/2030802/IDA_Remote_Dark.png %}{% endcapture %}
+{% capture asset_link %}{% link /assets/20230802/IDA_Remote_Dark.png %}{% endcapture %}
 [![screenshot]({{ asset_link | absolute_url }} "Function Comparison feature in the MCRIT IDA plugin, Dark Mode.")]({{ asset_link | absolute_url }})
 
 We will possibly address this by allowing users to define custom color schemes in the config.
@@ -67,7 +67,7 @@ Ultimately, the goal here is to have this reference library code available with 
 
 As an example, the available `zlib` is from the evaluations in my PhD thesis and can already be used to tag functions in a given IDB should you run into them:
 
-{% capture asset_link %}{% link /assets/2030802/IDA_zlib.png %}{% endcapture %}
+{% capture asset_link %}{% link /assets/20230802/IDA_zlib.png %}{% endcapture %}
 [![screenshot]({{ asset_link | absolute_url }} "Symbol import for zlib")]({{ asset_link | absolute_url }})
 
 We expect this procedure to take a while and do this besides all our other projects/work, so check back every now and then to see what was added.  
