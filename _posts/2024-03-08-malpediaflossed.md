@@ -50,7 +50,7 @@ Now, whenever looking at strings, we can use this data collection to get additio
 While the data itself is nice, it has to be usable.  
 For this reason, I also created tools around it.
 
-## Web Service
+#### Web Service
 
 First, there is a public web service hosted at [strings.malpedia.io](https://strings.malpedia.io/), which is an instance of the [implementation](https://github.com/malpedia/malpedia-flossed/tree/main/flossed-falcon) we provide in the repo.
 
@@ -87,12 +87,14 @@ $ curl -X POST https://strings.malpedia.io/api/query/ --data '"FIXME","NOT_IN_TH
 }
 ```
 
-## Plugins
+That is, when looking up multiple strings, they should be submitted as a single line of comma-separated values.
+
+#### Plugins
 
 Instead of doing raw lookups, we can also leverage other tools that produce strings for us.  
 Natural candidates for this are binary analysis tools such as IDA Pro, Ghidra, and Binary Ninja.
 
-#### Cross-Compatibility
+##### Cross-Compatibility
 
 Since I didn't want to write the same plugin multiple times, I started looking into making one plugin cross-compatible.  
 Luckily, I didn't have to pioneer a lot here since this had already been done before by [@hyuunnn](https://github.com/hyuunnn), who managed to make his tool [hyara](https://github.com/hyuunnn/Hyara) compatible with all of the above named tools.  
@@ -103,7 +105,7 @@ For future development and in case others want to start off from the same base, 
 The major challenge that will remain for the future is to extend the included [ApiProxy](https://github.com/danielplohmann/gui-plugin-template/blob/main/template_plugin/plugin/apis/ApiProxy.py) to adapt and harmonize as much from the different tools' APIs into one combined interface.  
 But let's go back to the MalpediaFLOSSed plugin.
 
-#### MalpediaFLOSSed plugin
+##### MalpediaFLOSSed plugin
 
 Setting up the plugin requires different steps per tool and has been described in the [documentation](https://github.com/malpedia/malpedia-flossed/blob/main/docs/plugin.md).  
 It can be used both fully offline using the above mentioned JSON file and also online by pointing it to an instance of the web service, like our [strings.malpedia.io](https://strings.malpedia.io/).
