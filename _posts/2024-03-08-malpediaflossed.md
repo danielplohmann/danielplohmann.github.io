@@ -15,7 +15,7 @@ The FLARE team has created the amazing [FLOSS](https://github.com/mandiant/flare
 So I went ahead and processed all of [Malpedia](https://malpedia.caad.fkie.fraunhofer.de/) with it, and provide the aggregated output via [MalpediaFLOSSed](https://github.com/malpedia/malpedia-flossed).
 
 
-## MalpediaFLOSSed
+### MalpediaFLOSSed
 
 FLOSS is short for FLARE Obfuscated String Solver.  
 As the name implies, it is a very capable strings carver that not just simply extracts ASCII and unicode sequences, but is also able to e.g. [decode stack strings](https://www.mandiant.com/resources/blog/automatically-extracting-obfuscated-strings) and use emulation to [decrypt strings](https://www.mandiant.com/resources/blog/floss-version-2).  
@@ -45,12 +45,12 @@ All of which was combined into one big JSON file, which is roughly 900 MB in siz
 
 Now, whenever looking at strings, we can use this data collection to get additional information about the prevalence of given strings, or if they are known to originate from benign sources such as 3rd party libraries or compilers.  
 
-## Operationalizing
+### Operationalizing
 
 While the data itself is nice, it has to be usable.  
 For this reason, I also created tools around it.
 
-### Web Service
+## Web Service
 
 First, there is a public web service hosted at [strings.malpedia.io](https://strings.malpedia.io/), which is an instance of the [implementation](https://github.com/malpedia/malpedia-flossed/tree/main/flossed-falcon) we provide in the repo.
 
@@ -58,13 +58,36 @@ The easiest way to interact with it, apart from the basic web UI, is doing API q
 
 ```
 $ curl https://strings.malpedia.io/api/query/FIXME  
-{"status": "successful", "data": [{"encodings": ["ASCII"], "families": ["win.kins", "win.vmzeus", "win.zeus_sphinx", "win.citadel", "win.ice_ix", "win.murofet", "win.zeus"], "family_count": 7, "methods": ["static"], "string": "FIXME", "tags": [], "matched": true}, {"matched": false, "string": "NOT_FLOSSED"}]}
+{
+    "status": "successful", 
+    "data": [
+        {
+            "encodings": ["ASCII"], 
+            "families": ["win.kins", "win.vmzeus", "win.zeus_sphinx", "win.citadel", 
+                         "win.ice_ix", "win.murofet", "win.zeus"], 
+            "family_count": 7, 
+            "methods": ["static"], "string": "FIXME", "tags": [], "matched": true
+        }
+    ]
+}
 
 $ curl -X POST https://strings.malpedia.io/api/query/ --data '"FIXME","NOT_IN_THE_DATABASE"'
-{"status": "successful", "data": [{"encodings": ["ASCII"], "families": ["win.kins", "win.vmzeus", "win.zeus_sphinx", "win.citadel", "win.ice_ix", "win.murofet", "win.zeus"], "family_count": 7, "methods": ["static"], "string": "FIXME", "tags": [], "matched": true}, {"matched": false, "string": "NOT_IN_THE_DATABASE"}]}
+{
+    "status": "successful", 
+    "data": [
+        {
+            "encodings": ["ASCII"], 
+            "families": ["win.kins", "win.vmzeus", "win.zeus_sphinx", "win.citadel", 
+                         "win.ice_ix", "win.murofet", "win.zeus"], 
+            "family_count": 7, 
+            "methods": ["static"], "string": "FIXME", "tags": [], "matched": true
+        }, 
+        {"matched": false, "string": "NOT_IN_THE_DATABASE"}
+    ]
+}
 ```
 
-### Plugins
+## Plugins
 
 Instead of doing raw lookups, we can also leverage other tools that produce strings for us.  
 Natural candidates for this are binary analysis tools such as IDA Pro, Ghidra, and Binary Ninja.
@@ -115,7 +138,7 @@ Here's the same plugin being used across all tools:
 {% capture asset_link %}{% link /assets/20240308/MalpediaFlossed_Binja.png %}{% endcapture %}
 [![screenshot]({{ asset_link | absolute_url }} "MalpediaFLOSSed in Binary Ninja")]({{ asset_link | absolute_url }})
 
-## Outlook
+### Outlook
 
 In its given state, we are already very happy with the project and think that it is a great contribution to initial string analysis.  
 For the future, we think the following aspects deserve additional attention.
