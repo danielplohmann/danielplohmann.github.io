@@ -106,7 +106,7 @@ The plugin is also interactive, when double clicking
 
 Here's the same plugin being used across all tools:
 
-{% capture asset_link %}{% link /assets/20240308/MalpediaFlossed_Ida.png %}{% endcapture %}
+{% capture asset_link %}{% link /assets/20240308/MalpediaFlossed_IDA.png %}{% endcapture %}
 [![screenshot]({{ asset_link | absolute_url }} "MalpediaFLOSSed in IDA Pro")]({{ asset_link | absolute_url }})
 
 {% capture asset_link %}{% link /assets/20240308/MalpediaFlossed_Ghidraton.png %}{% endcapture %}
