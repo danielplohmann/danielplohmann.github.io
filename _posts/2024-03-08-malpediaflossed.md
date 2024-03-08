@@ -2,10 +2,10 @@
 layout:             post
 title:              "MalpediaFLOSSed"
 author:             Daniel Plohmann
-date:               2024-03-08 08:30:00 +0100
-last_modified_at:   2024-03-08 08:30:00 +0100
+date:               2024-03-08 11:00:00 +0100
+last_modified_at:   2024-03-08 11:00:00 +0100
 categories:         blog
-tags:               [bytetlas, "knowledge fragment", malpedia]
+tags:               [bytetlas, malpedia, strings]
 ---
 
 Today, I want to write a few lines about a project that I worked on since the start of 2024.  
@@ -47,7 +47,7 @@ Now, whenever looking at strings, we can use this data collection to get additio
 
 ### Operationalizing
 
-While the data itself is nice, it has to be usable.  
+While the data itself is nice, it has to be usable.
 For this reason, I also created tools around it.
 
 #### Web Service
@@ -97,7 +97,7 @@ Natural candidates for this are binary analysis tools such as IDA Pro, Ghidra, a
 ##### Cross-Compatibility
 
 Since I didn't want to write the same plugin multiple times, I started looking into making one plugin cross-compatible.  
-Luckily, I didn't have to pioneer a lot here since this had already been done before by [@hyuunnn](https://github.com/hyuunnn), who managed to make his tool [hyara](https://github.com/hyuunnn/Hyara) compatible with all of the above named tools.  
+Luckily, I didn't have to pioneer a lot here since this had already been done before by [@hyuunnn](https://github.com/hyuunnn), who managed to make the tool [hyara](https://github.com/hyuunnn/Hyara) compatible with all of the above named tools.  
 So many, many thanks for figuring out many of the irks related to such an endeavor!!
 
 For this reason, the plugin presented here is largely based on the code found in [hyara](https://github.com/hyuunnn/Hyara).  
